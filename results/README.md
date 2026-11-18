@@ -6,6 +6,7 @@
 |---|---|
 | `camera/` | One answer per test crop on the 1,611-crop camera benchmark, for the unedited model, the four released models and SigLIP alone (each crop's image features matched to the text features of each name on its list) |
 | `island/` | One answer per crop on the 697-crop island test, for the same models plus SpeciesNet's standard output and its raw top label |
+| `bioclip2/` | BioCLIP 2 on the same camera and island crops: `result.md` gives the comparison and how it was run, `summary.json` the numbers behind it |
 | `check39-detail/` | Camera-trap edit only: answers when no list is given, scores with each part of the edit removed, scores for every checkpoint the editors saved, and the regional species-list test on Felidae Conservation Fund images |
 
 File names follow the Hugging Face repositories: `camera-trap-edit` is the camera-trap edit (check 39 in the paper, the 39th checkpoint the editing models saved), `galapagos-island-edit` the island edit, `camera-island-lora` the LoRA model and `camera-island-direct-edit` the direct combined edit.

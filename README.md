@@ -27,7 +27,11 @@ Each model is shown a cropped photo and a list of names, and answers with one na
 | One model for both jobs (direct edit) | 90.83% | 55.49% | 55.49% | 17.70% |
 | Camera-trap edit | 91.67% | 51.83% | 51.83% | 13.75% |
 | Unedited model | 70.83% | 50.00% | 50.00% | 2.96% |
+| SigLIP alone | 98.33% | 78.29% | 77.45% | 46.86% |
 | SpeciesNet | 3.33% | 12.44% | 12.44% | 8.11% |
+| BioCLIP 2 | 100.00% | 94.49% | 94.48% | 83.29% |
+
+Bold marks the best of the five LLaVA models in each column. SigLIP alone, SpeciesNet and BioCLIP 2 are reference models, run as released.
 
 SpeciesNet has no label for these natives, so it never names them correctly. Its standard output, after its geographic filter (which swaps a species not known from the photo's country for a broader label), also rarely names the brown noddy or the green iguana, which puts its scores below 50%. SpeciesNet was scored on the island test only.
 
@@ -42,8 +46,12 @@ SpeciesNet has no label for these natives, so it never names them correctly. Its
 | One model for both jobs (LoRA) | 79.22% | +15.13 points (9.25 to 21.24) |
 | Island edit | 72.14% | +8.05 points (3.01 to 13.93) |
 | Unedited model | 64.09% | |
+| SigLIP alone | 82.79% | |
+| BioCLIP 2 | 84.07% | +19.98 points (13.76 to 26.75) |
 
-`results/summary.json` holds every number above and more. `python code/summarise_results.py --output results/summary.json` recomputes it from the saved per-crop predictions in `results/`.
+**BioCLIP 2.** A free, general model with half a billion parameters, edited by frontier AI with no training run, scores 81.76% on the camera traps, level within noise with BioCLIP 2 at 84.07% (BioCLIP 2 higher by 2.31 points, 95% interval −1.58 to +6.38). BioCLIP 2 is the open image model built to name species, trained on photos across the tree of life; it ran as released on the same crops and lists. On the island test it scores 94.49% and 94.48% on the iguanas, 100.00% on the birds and 83.29% on rats, having trained on 399 of the 684 iNaturalist photos in that test. It is a stronger image encoder than the SigLIP one inside this model, and putting it inside the language model is the next experiment. [results/bioclip2/](results/bioclip2/) has the full comparison.
+
+`results/summary.json` holds every number above except the BioCLIP 2 rows, and more. `python code/summarise_results.py --output results/summary.json` recomputes it from the saved per-crop predictions in `results/`.
 
 ## Models
 
