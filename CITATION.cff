@@ -7,7 +7,7 @@ authors:
     given-names: Andrew
 license: Apache-2.0
 repository-code: "https://github.com/andrewxhill/frontier-model-weight-edits"
-url: "https://andrewxhill.github.io/frontier-model-weight-edits/"
+url: "https://andrewxhill.com/frontier-model-weight-edits/"
 date-released: 2026-11-18
 keywords:
   - camera traps
@@ -23,4 +23,4 @@ preferred-citation:
     - family-names: Hill
       given-names: Andrew
   year: 2026
-  url: "https://andrewxhill.github.io/frontier-model-weight-edits/paper.pdf"
+  url: "https://andrewxhill.com/frontier-model-weight-edits/paper.pdf"

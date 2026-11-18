@@ -6,7 +6,7 @@ The model is LLaVA-OneVision, a vision-language model (it reads an image and ans
 
 Frontier models brought that knowledge into the answers by changing the weights (the numbers the model is made of) by calculation, with no training run. Two kinds of change did the work, and both mattered. The first is in the projector, the small network that passes image features to the language model. It now also writes an animal-name hint: a score for each name on the list, computed from the image, placed where the language model reads it. The hints carry what the image encoder sees into the answer. For the Galápagos animals, those scores were solved as ridge regressions (least-squares fits with a penalty that keeps the numbers small) on labelled practice photos. The second corrects the output rows (the numbers that score each possible next token) so the model gives that answer cleanly. In the camera-trap edit the model rambled ("B. The image shows a fox…"), so the editors set the rows for "The" to zero and scaled the end-of-answer row by 1.5. Putting those three rows back drops the edit's camera-trap score from 81.76% to 72.03%. In the island edit, hints alone raised the selection score from 39.38 to 43.41, and hints with corrected rows for the answer letters and for "The" reached 71.21; the island test does not separate the two on held-out photos.
 
-**Explainer:** [https://andrewxhill.github.io/frontier-model-weight-edits/](https://andrewxhill.github.io/frontier-model-weight-edits/) · **Paper:** [paper/paper.pdf](paper/paper.pdf) · **Models:** [Hugging Face](#models)
+**Explainer:** [https://andrewxhill.com/frontier-model-weight-edits/](https://andrewxhill.com/frontier-model-weight-edits/) · **Paper:** [paper/paper.pdf](paper/paper.pdf) · **Models:** [Hugging Face](#models)
 
 ## What was built
 
@@ -131,6 +131,6 @@ Claude Fable 5.2, Claude Opus 5.5 and GPT-6 Astra Pro edited the weights for the
 
 Cite with [CITATION.cff](CITATION.cff):
 
-> Andrew Hill (2026). *Can weight-space programming surface the domain expertise hidden in a small vision-language model? Evidence from camera traps and Galápagos species.* https://andrewxhill.github.io/frontier-model-weight-edits/paper.pdf
+> Andrew Hill (2026). *Can weight-space programming surface the domain expertise hidden in a small vision-language model? Evidence from camera traps and Galápagos species.* https://andrewxhill.com/frontier-model-weight-edits/paper.pdf
 
 The code is licensed under [Apache-2.0](LICENSE). The camera-trap edit is Apache-2.0, as is its base model. The island edit, the LoRA model and the direct combined edit are CC BY-NC 4.0, because they were fitted on iNaturalist photos and iNaturalist's terms forbid using its data to train AI for commercial purposes. Data manifests keep their sources' terms. [LICENSES.md](LICENSES.md) lists every upstream licence and what it requires.
