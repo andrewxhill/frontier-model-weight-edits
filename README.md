@@ -4,7 +4,7 @@ LLaVA-OneVision is a free vision-language model with half a billion parameters. 
 
 Google's SpeciesNet camera-trap classifier has more than 2,000 labels and none for the Galápagos land iguana, the marine iguana or the Galápagos mockingbirds. On held-out photos the edited model scored 98.33% on mockingbird versus brown noddy, up from 70.83%, where SpeciesNet scored 3.33%. The small model was edited and tested free on one desktop computer.
 
-**Explainer:** [https://andrewxhill.github.io/frontier-weight-edits/](https://andrewxhill.github.io/frontier-weight-edits/) · **Paper:** [paper/paper.pdf](paper/paper.pdf) · **Models:** [Hugging Face](#models)
+**Explainer:** [https://andrewxhill.github.io/frontier-model-weight-edits/](https://andrewxhill.github.io/frontier-model-weight-edits/) · **Paper:** [paper/paper.pdf](paper/paper.pdf) · **Models:** [Hugging Face](#models)
 
 ## Results
 
@@ -125,6 +125,6 @@ Claude Fable 5.2, Claude Opus 5.5 and GPT-6 Astra Pro edited the weights for the
 
 Cite with [CITATION.cff](CITATION.cff):
 
-> Andrew Hill (2026). *Can weight-space programming surface the domain expertise hidden in a small vision-language model? Evidence from camera traps and Galápagos species.* https://andrewxhill.github.io/frontier-weight-edits/paper.pdf
+> Andrew Hill (2026). *Can weight-space programming surface the domain expertise hidden in a small vision-language model? Evidence from camera traps and Galápagos species.* https://andrewxhill.github.io/frontier-model-weight-edits/paper.pdf
 
 The code is licensed under [Apache-2.0](LICENSE). The camera-trap edit is Apache-2.0, as is its base model. The island edit, the LoRA model and the direct combined edit are CC BY-NC 4.0, because they were fitted on iNaturalist photos and iNaturalist's terms forbid using its data to train AI for commercial purposes. Data manifests keep their sources' terms. [LICENSES.md](LICENSES.md) lists every upstream licence and what it requires.
