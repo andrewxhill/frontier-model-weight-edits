@@ -1,8 +1,9 @@
-"""Label-free origin-SigLIP readout of actual native LLaVA projector inputs.
+"""Turn the camera model's own vision activations into SigLIP image vectors, with no labels.
 
-Fixed row: global view index0 only -> original last block -> original LN/MAP.
-Never substitutes a public full vision encoder, fits labels, or reads imagery.
-Portable source derivative; checkpoint loading/inference requires an explicit caller. Module import is inert.
+Takes the projector inputs for the whole-image view (view 0) and passes them through
+the original SigLIP model's last vision block, normalisation and pooling head. Uses
+only those SigLIP parts, fits no labels and reads no images. Importing the module
+does nothing; the builder loads the weights and calls it.
 """
 import hashlib
 import importlib.metadata

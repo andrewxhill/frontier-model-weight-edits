@@ -1,7 +1,7 @@
 """Fresh practice captures, using portable standard Transformers model objects.
 
-No old forward/feature/parameter files are read. This module is inert until a
-reviewed root-owned invocation constructs FreshPractice and calls its methods.
+Reads no saved activations, features or parameters. Importing the module does
+nothing; the builder creates FreshPractice and calls its methods.
 """
 import hashlib
 import json

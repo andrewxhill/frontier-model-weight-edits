@@ -1,12 +1,12 @@
-# Build from public practice inputs
+# Rebuild the camera-trap edit from public practice inputs
 
-The practice-input computation reproduced 81.76% balanced accuracy and every check-39 output on the 1,611-crop test. It produced a different state: 713 of 716 tensors match byte for byte, while three differ slightly. [Construction details](CONSTRUCTION.md) report those differences. Exact reconstruction of the released weights uses `apply_edit.py` and the delta.
+This recipe recomputes the camera-trap edit from the public base model, SigLIP and public practice crops. The rebuilt model scored 81.76% balanced accuracy on the 1,611-crop test and gave the same output as the released edit on every crop. Its weights are almost identical: 713 of 716 tensors match byte for byte, and three differ slightly. [Construction details](CONSTRUCTION.md) report those differences. To reproduce the released weights exactly, use `apply_edit.py` and the delta.
 
-The practice crops are the images and labels made available to the editing programs. Private tuning crops and the 45 test cameras are excluded from these manifests. The bundle contains 23,447 practice crops from 57 cameras, with 23,139 disclosed labels and 308 null labels. Fixed selections use 2,449 crops from 2,440 frames. The recipe recomputes feature banks in their recorded order from original weights and practice images. It does not read the released edited checkpoint, delta, old feature arrays or fitted coefficients.
+The practice crops are the images and labels the editing models could use. The 45 test cameras and the 204 tuning crops held back from the editors are not in these files. There are 23,447 practice crops from 57 cameras: 23,139 with a label and 308 without. The recipe's fixed selections use 2,449 crops from 2,440 frames. It recomputes the feature banks in their original order from the original weights and practice images. It does not read the released edited model, the delta, or any saved feature arrays or fitted coefficients.
 
 ## Install dependencies and fetch inputs
 
-The completed build used Python 3.13.14 on Apple silicon MPS with float32. Create a separate environment. The build requirements add SciPy, SentencePiece and protobuf to the nine inference pins; `installed-build-freeze.txt` records the resolved versions. Other operating systems and backends remain untested.
+The reference build used Python 3.13.14 on Apple silicon (MPS) with float32. Other operating systems and backends are untested. Create a separate environment. The build requirements add SciPy, SentencePiece and protobuf to the nine packages in `../requirements.txt`; `installed-build-freeze.txt` records the resolved versions.
 
 ```sh
 python -m venv .venv-build
@@ -19,9 +19,9 @@ python -c "from huggingface_hub import snapshot_download; snapshot_download(repo
 python recipe/fetch_practice049.py --practice ../data/camera/practice/crops.json --selections recipe/selections047.json --images work/practice-images
 ```
 
-The base helper loads `lmms-lab/llava-onevision-qwen2-0.5b-ov` at revision `381d9947148efb1e58a577f451c05705ceec666e`. It verifies the original `c3706c18` state and tied aliases, then saves a standard Transformers model. The camera model supplies activations from its 26-layer vision encoder. The original SigLIP reference supplies the missing final vision block, normalisation and pooling head, which turn those activations into image vectors, plus the text tower that produces matching animal-name vectors. Its weights, configuration, prompt and tokens are checked against the reference metadata. Image fetches verify full-frame hashes and the fixed selection.
+Run these from the `code/` folder. `prepare_base048` loads `lmms-lab/llava-onevision-qwen2-0.5b-ov` at revision `381d9947148efb1e58a577f451c05705ceec666e`, checks its hashes and saves it as a standard Transformers model. The camera model supplies activations from its 26-layer vision encoder. The original SigLIP model supplies the final vision block, normalisation and pooling head that turn those activations into image vectors, and the text tower that turns animal names into matching vectors. Its weights, configuration, prompt and tokens are checked against the reference metadata. The fetch script checks every frame's hash and the fixed selection.
 
-## One fixed construction
+## Build
 
 ```sh
 python build_edit.py --base work/base --reference work/reference \
@@ -31,14 +31,12 @@ python build_edit.py --base work/base --reference work/reference \
   --condition recipe/condition047.json --output work/construction --device mps
 ```
 
-Use a new output directory. Completion writes `derivation-receipt.json` and a standard `derived-model` directory. The builder saves and reloads that model, and records its full base-anchored state hash. The released state is read only by the subsequent comparison, after construction finishes.
+Use a new output directory. The build writes `derivation-receipt.json` and a standard `derived-model` directory. It saves and reloads that model and records its state hash. The build never reads the released edit; compare against it afterwards.
 
-Intermediate captures are bound to code, inputs, model state and runtime hashes. `--resume` continues the same unfinished attempt only when those bindings match. An existing `derived-model` directory is refused. Changing environments or inputs requires a new attempt.
+Intermediate captures are tied to hashes of the code, inputs, model and runtime. `--resume` continues an unfinished build only when all of those still match. The builder refuses to overwrite an existing `derived-model` directory. If you change the environment or inputs, start a new build.
 
 ## Disk and memory
 
-After installing environments and obtaining model inputs and images, reserve at least 36.71 GB free for construction. Allow additional space for other writers. The first feature-capture stage, named `T1` in the builder and selection file, processes 512 crops. The image processor expands these into 3,571 views: resized whole-image views and tiles, with a maximum of 37 views per crop. The reservation comprises 18.71 GB for persistent outputs, 2 GB for temporary model writes and 16 GB left free. A resume retains previous captures and adds a 1.72 GB base memory map.
+After installing the environments and downloading the models and images, keep at least 36.71 GB free for the build: 18.71 GB for outputs, 2 GB for temporary model writes and 16 GB of headroom. Allow more if other programs write to the same disk. A resumed build keeps earlier captures and adds a 1.72 GB memory-mapped copy of the base. The first capture stage, `T1` in the builder and selection file, processes 512 crops. The image processor expands them into 3,571 views (whole-image views and tiles, up to 37 per crop).
 
-The completed run used a process-tree memory monitor with a 32 GB ceiling and a stop threshold of 30 GB. Process resident memory does not include every GPU or unified-memory allocation. The standalone builder does not install a memory or disk guard, so monitor available memory and disk while it runs. The fixed recipe includes 2,570 generations, each allowing up to 1,024 new tokens, plus diagnostic and reference captures. It keeps the original view count.
-
-The paper and `results/check39-detail/` report no-list and regional-list measurements alongside the label-informed camera-option condition.
+The reference build stayed under 30 GB of process memory, not counting GPU or unified-memory allocations, within a 32 GB ceiling. The builder has no memory or disk guard of its own, so watch both while it runs. The recipe makes 2,570 generations of up to 1,024 new tokens each, plus diagnostic and reference captures.

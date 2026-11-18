@@ -1,8 +1,8 @@
-"""Conservative answer parsing for saved camera replies and future forwards.
+"""Turn a model's reply into one option from the list it was shown.
 
-Accept an option letter, a unique presented name, or an agreeing letter/name
-pair. Keep ambiguous aliases and conflicting pairs unresolved. This changes no
-raw reply and cannot rescue refusal, truncation, loops or empty generations.
+Accept an option letter, a name that matches exactly one option, or a letter and
+name that agree. Ambiguous names and conflicting pairs stay unresolved. The raw
+reply is never changed, and refusals, truncated, looping or empty replies stay faults.
 """
 import json
 import re

@@ -44,9 +44,9 @@ def build(results,data):
 
 def main():
     p=argparse.ArgumentParser(description=__doc__,formatter_class=argparse.RawDescriptionHelpFormatter)
-    p.add_argument('--results',default=str(HERE.parent/'results'))
-    p.add_argument('--data',default=str(HERE.parent/'data'))
-    p.add_argument('--output',required=True)
+    p.add_argument('--results',default=str(HERE.parent/'results'),help='folder of saved predictions')
+    p.add_argument('--data',default=str(HERE.parent/'data'),help='folder of data manifests')
+    p.add_argument('--output',required=True,help='JSON summary to write')
     a=p.parse_args();summary=build(a.results,a.data)
     Path(a.output).write_text(json.dumps(summary,indent=1)+'\n');print(json.dumps(summary['island_test']['camera-island-lora'],indent=1))
 

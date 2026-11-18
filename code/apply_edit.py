@@ -1,7 +1,10 @@
-"""Rebuild a released model from the public base: apply exact replacement tensors and
-tied-head rows from a delta file, verifying every byte against its manifest.
-Replacements may be projector tensors, tied-head rows or merged LoRA query/value weights.
-The public upstream uses custom weight names; conversion is explicit, never remote code.
+"""Rebuild a released model from the public base model and a delta.
+
+The delta holds exact replacement values: whole projector tensors, rows of the output
+head (shared with the input embeddings) and, for the LoRA model, merged attention query
+and value matrices. Every byte is checked against the delta manifest. The public base
+uses its own weight names, so this script converts it to the standard Transformers
+layout itself and never runs remote code.
 """
 import argparse,copy,hashlib,json,re
 from pathlib import Path
@@ -109,7 +112,7 @@ def maker_processor(path,source):
  template="{% for message in messages %}{{ '<|im_start|>' + message['role'] + '\n' }}{% if message['content'] is string %}{{ message['content'] }}{% else %}{% for content in message['content'] | selectattr('type', 'equalto', 'image') %}{{ '<image>\n' }}{% endfor %}{% for content in message['content'] | selectattr('type', 'equalto', 'text') %}{{ content['text'] }}{% endfor %}{% endif %}{{ '<|im_end|>\n' }}{% endfor %}{% if add_generation_prompt %}{{ '<|im_start|>assistant\n' }}{% endif %}"
  return LlavaOnevisionProcessor(tokenizer=tokenizer,image_processor=image,video_processor=video,num_image_tokens=729,vision_feature_select_strategy='full',vision_aspect_ratio=source['image_aspect_ratio'],chat_template=template)
 def main():
- p=argparse.ArgumentParser(description=__doc__);p.add_argument('--base',required=True);p.add_argument('--revision');p.add_argument('--delta',type=Path,required=True);p.add_argument('--manifest',type=Path,required=True);p.add_argument('--output',type=Path,required=True);a=p.parse_args()
+ p=argparse.ArgumentParser(description=__doc__);p.add_argument('--base',required=True,help='public base: a Hugging Face repo ID or a local directory');p.add_argument('--revision',help='base revision to download');p.add_argument('--delta',type=Path,required=True,help='delta.safetensors from the model repository');p.add_argument('--manifest',type=Path,required=True,help='delta_manifest.json from the model repository');p.add_argument('--output',type=Path,required=True,help='new directory for the rebuilt model');a=p.parse_args()
  if a.output.exists():raise FileExistsError('new output directory required')
  manifest=json.loads(a.manifest.read_text())
  if sha(a.delta)!=manifest['delta_file_sha256']:raise ValueError('delta container bytes differ')

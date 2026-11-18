@@ -1,8 +1,8 @@
-"""Ask a model to name each island crop from its fixed 11-name menu.
+"""Ask a model to name each island crop from its fixed 11-name list.
 
 The prompt, chat template and greedy decoding match the study: float32, batch one,
 1,024 maximum new tokens, repetition penalty 1.1. Replies are parsed with the camera
-benchmark parser, which accepts a letter or an unambiguous menu name.
+benchmark parser, which accepts a letter or a name that matches exactly one option.
 
 Example:
   python island/predict.py --model path/to/model --manifest ../data/island/test.jsonl \
@@ -57,9 +57,9 @@ def main():
     p.add_argument('--crops',required=True,help='directory written by fetch_crops.py')
     p.add_argument('--output',required=True,help='new JSON-lines prediction file')
     p.add_argument('--arm',default='model',help='label stored with each prediction')
-    p.add_argument('--menus',default=str(HERE/'menus.json'))
+    p.add_argument('--menus',default=str(HERE/'menus.json'),help='the three 11-name lists')
     p.add_argument('--device',default='cpu',help='cpu, mps or cuda')
-    p.add_argument('--limit',type=int,default=None)
+    p.add_argument('--limit',type=int,default=None,help='answer at most this many crops')
     a=p.parse_args()
     from PIL import Image
     out=Path(a.output)

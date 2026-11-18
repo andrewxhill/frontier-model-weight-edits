@@ -1,4 +1,5 @@
-"""Camera/class-balanced scoring and paired camera bootstrap, frozen rules."""
+"""Score camera-trap predictions: balanced accuracy per camera and class, and a paired
+interval against a baseline that resamples whole cameras."""
 from collections import defaultdict
 from fractions import Fraction
 import argparse
@@ -48,7 +49,7 @@ def single(rows):
                 nonanswers=sum(r['answer'] is None for r in rows))
 
 def main():
-    p=argparse.ArgumentParser();p.add_argument('--edited',required=True);p.add_argument('--baseline');p.add_argument('--output',required=True)
+    p=argparse.ArgumentParser(description=__doc__);p.add_argument('--edited',required=True,help='predictions.jsonl for the model to score');p.add_argument('--baseline',help='predictions.jsonl for a model to compare against');p.add_argument('--output',required=True,help='JSON summary to write')
     args=p.parse_args()
     def read(path): return [json.loads(line) for line in Path(path).read_text().splitlines() if line.strip()]
     rows=read(args.edited)

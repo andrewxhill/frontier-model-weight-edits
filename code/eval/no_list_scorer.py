@@ -1,7 +1,7 @@
-"""Frozen-input deterministic no-list scorer; no model judge or output fitting.
+"""Score open-naming predictions with fixed rules and no model judge.
 
-Strict category equality and separately reported ancestor compatibility. This
-module never opens images, prediction files, remote paths or model weights.
+Strict scoring requires the same category as the reference label; lenient scoring
+also accepts a declared ancestor or descendant. Both are reported.
 """
 import json
 import re
@@ -98,7 +98,7 @@ def paired_rows(edited,baseline,taxonomy):
 
 if __name__=='__main__':
     import argparse
-    parser=argparse.ArgumentParser();parser.add_argument('--edited',required=True);parser.add_argument('--baseline');parser.add_argument('--taxonomy',default=str(Path(__file__).with_name('no-list-taxonomy.json')));parser.add_argument('--output',required=True)
+    parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('--edited',required=True,help='predictions.jsonl for the model to score');parser.add_argument('--baseline',help='predictions.jsonl for a model to compare against');parser.add_argument('--taxonomy',default=str(Path(__file__).with_name('no-list-taxonomy.json')),help='aliases and parent-child rules');parser.add_argument('--output',required=True,help='JSON summary to write')
     a=parser.parse_args()
     def read(path):return [json.loads(line) for line in Path(path).read_text().splitlines() if line.strip()]
     taxonomy=load_taxonomy(a.taxonomy)

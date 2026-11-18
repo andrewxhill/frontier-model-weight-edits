@@ -1,4 +1,4 @@
-"""Selected original mathematical functions. Generated from pinned source; not a notebook replay."""
+"""The editors' numerical functions that the builder uses, copied unchanged."""
 import numpy as np
 import torch
 import torch.nn.functional as Fn

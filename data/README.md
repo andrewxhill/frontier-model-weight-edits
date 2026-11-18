@@ -6,22 +6,22 @@ These files list every crop the study used: where its photo comes from, the box 
 
 | File | Rows | What it is |
 |---|---:|---|
-| `camera/manifest.json`, `camera/crops.jsonl` | 1,611 | Camera-trap test: 45 cameras from Island Conservation and Caltech Camera Traps, with each camera's option list |
+| `camera/manifest.json`, `camera/crops.jsonl` | 1,611 | Camera-trap test: 45 cameras from Island Conservation and Caltech Camera Traps, with each camera's list of names |
 | `camera/practice/crops.json`, `camera/practice/cameras.json` | 23,447 | Practice crops from 57 other cameras, used to build the camera-trap edit |
 | `combined/camera-practice.jsonl` | 2,095 | Camera practice crops used to build both one-model-for-both-jobs models |
 | `combined/camera-selection.jsonl` | 194 | Camera crops used to choose among the direct combined edit's eight candidates |
 | `island/practice.jsonl` | 895 | Island practice photos; `used_in` marks the 846 fitted by the island edit and the 807 used by both combined models |
-| `island/selection.jsonl` | 456 | Island photos used to choose among candidate edits (426 usable) |
+| `island/selection.jsonl` | 456 | Island photos used to choose among candidate edits; 426 gave a usable crop |
 | `island/test.jsonl` | 752 | Island test photos; 697 gave a usable crop and form the test |
 
 Rows with `crop_status` other than `complete` were sampled but gave no crop: the download failed or the detector found no animal. They are kept so the sample is complete.
 
 ## Splits
 
-Splits are by location. No camera, county or other location appears in more than one of practice, selection and test.
+Practice photos fit a model, selection photos choose between candidate models, and test photos are scored once. Splits are by location: no camera, island or other location appears in more than one of the three.
 
 - **Camera traps.** The 45 test cameras supply no practice or selection crop.
-- **Galápagos natives.** Practice photos come from iNaturalist place 49264, selection from 29827 and test from 49265. Each native group therefore has one county per split.
+- **Galápagos natives.** Practice photos come from Isabela (iNaturalist place 49264), selection from San Cristóbal (29827) and test from Santa Cruz (49265). Each native group therefore has one place per split.
 - **Look-alikes and controls** (green iguanas, rats, other birds, Island Conservation camera-trap frames). These come from many locations worldwide, each assigned to one split.
 
 ## Island fields
@@ -33,7 +33,7 @@ Splits are by location. No camera, county or other location appears in more than
 | `licence`, `attribution` | The photo's own licence and credit line, as published by its source |
 | `source_image_sha256` | SHA256 of the downloaded file |
 | `integer_box` | Crop box in pixels, `[x0, y0, x1, y1]`, from MegaDetector v5a |
-| `pixel_sha256` | Hash of the crop's RGB pixels; also the crop's file name |
+| `pixel_sha256` | SHA256 of the crop's RGB pixels; also the crop's file name |
 | `task` | Which 11-name list the crop is shown with: `iguana`, `bird` or `rodent` |
 | `group` | Scoring group, such as `native_land_iguana`, `green_iguana`, `native_mockingbird`, `other_birds` or `invasive_rattus` |
 | `truth_species`, `truth_genus` | Reference label from the research-grade observation or the camera-trap annotation |

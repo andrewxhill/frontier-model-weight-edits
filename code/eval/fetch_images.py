@@ -1,4 +1,4 @@
-"""Fetch only manifested public LILA frames; verify full-frame SHA before use."""
+"""Download the public LILA frames listed in the camera manifest and check each SHA256 hash."""
 import argparse
 from pathlib import Path
 import urllib.request
@@ -28,5 +28,5 @@ def fetch(manifest_path,root):
     return len(done)
 
 if __name__=='__main__':
-    p=argparse.ArgumentParser();p.add_argument('--manifest',required=True);p.add_argument('--images',required=True)
+    p=argparse.ArgumentParser(description=__doc__);p.add_argument('--manifest',required=True,help='camera manifest, ../data/camera/manifest.json');p.add_argument('--images',required=True,help='directory to store the frames')
     a=p.parse_args();print('Verified frames:',fetch(a.manifest,a.images))

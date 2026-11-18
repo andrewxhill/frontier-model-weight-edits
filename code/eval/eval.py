@@ -1,4 +1,8 @@
-"""Fresh batch-one float32 generation using standard Transformers only."""
+"""Ask a model to name each camera-trap crop from its camera's list of names.
+
+Greedy float32 generation, batch one, standard Transformers only. Writes
+predictions.jsonl to a new output directory for eval/scorer.py.
+"""
 import argparse
 import hashlib
 import json
@@ -62,6 +66,6 @@ def run(model_directory,manifest_path,images,output,device):
     return summary
 
 if __name__=='__main__':
-    p=argparse.ArgumentParser();p.add_argument('--model',required=True);p.add_argument('--manifest',required=True)
-    p.add_argument('--images',required=True);p.add_argument('--output',required=True);p.add_argument('--device',default='cpu')
+    p=argparse.ArgumentParser(description=__doc__);p.add_argument('--model',required=True,help='model directory in Transformers layout');p.add_argument('--manifest',required=True,help='camera manifest, ../data/camera/manifest.json')
+    p.add_argument('--images',required=True,help='frame cache written by eval/fetch_images.py');p.add_argument('--output',required=True,help='new output directory');p.add_argument('--device',default='cpu',help='cpu, mps or cuda')
     a=p.parse_args();print(json.dumps(run(a.model,a.manifest,a.images,a.output,a.device),indent=2))

@@ -1,6 +1,6 @@
 """Score island predictions: native-versus-look-alike balanced accuracy and rat recall.
 
-Each answer is resolved to a taxon through the menu names and scientific names, and,
+Each answer is resolved to a taxon through the list names and scientific names, and,
 when supplied, the SpeciesNet taxonomy release used in the study. Scores give each
 public location equal weight within a direction, then average the two directions:
   land iguana vs green iguana, marine iguana vs green iguana,
@@ -97,7 +97,7 @@ def main():
     p.add_argument('--manifest',required=True,help='island test manifest (JSON lines)')
     p.add_argument('--predictions',required=True,help='output of predict.py')
     p.add_argument('--output',required=True,help='JSON summary to write')
-    p.add_argument('--menus',default=str(HERE/'menus.json'))
+    p.add_argument('--menus',default=str(HERE/'menus.json'),help='the three 11-name lists')
     p.add_argument('--speciesnet-taxonomy',default=None,help='optional SpeciesNet taxonomy release file (one 7-field label per line), used in the study to resolve extra common names')
     a=p.parse_args()
     lists=json.loads(Path(a.menus).read_text())['lists']

@@ -6,7 +6,7 @@ merged LoRA query/value matrices and changed rows of the tied embedding/output h
 
 Example:
   python make_delta.py --base work/base --target released-model \
-    --template delta/check39/edit_manifest.json --output delta/island
+    --template camera-trap-edit/delta/delta_manifest.json --output delta/island
 """
 import argparse,hashlib,json,re
 from pathlib import Path
@@ -59,7 +59,7 @@ def main():
     p=argparse.ArgumentParser(description=__doc__,formatter_class=argparse.RawDescriptionHelpFormatter)
     p.add_argument('--base',required=True,help='original base in standard Transformers layout (see recipe/prepare_base048.py)')
     p.add_argument('--target',required=True,help='released model directory')
-    p.add_argument('--template',required=True,help='an existing delta manifest for the same base, e.g. the check 39 edit_manifest.json')
+    p.add_argument('--template',required=True,help='an existing delta manifest for the same base, such as the camera-trap edit\'s delta/delta_manifest.json')
     p.add_argument('--output',required=True,help='new directory for delta.safetensors and delta_manifest.json')
     a=p.parse_args();m=build(a.base,a.target,a.template,a.output)
     print(json.dumps(dict(target_state_sha256=m['target_state_sha256'],replacements=len(m['replacements'])),indent=1))

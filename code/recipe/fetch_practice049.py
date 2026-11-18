@@ -1,7 +1,7 @@
-"""Fetch fixed selected public-practice frames, one worker, SHA-verified.
+"""Download the practice frames the recipe selects and check each SHA256 hash.
 
-No shell commands, model calls, annotation joins or hidden dataset access.
-Existing matching public bytes may instead populate the same hash-named cache.
+Downloads one frame at a time from the public LILA URLs. A frame already in the
+cache with the right hash is reused.
 """
 import argparse
 import hashlib
@@ -56,7 +56,7 @@ def fetch_rows(rows,selected,images,*,opener=urllib.request.urlopen):
 
 
 if __name__=='__main__':
-    p=argparse.ArgumentParser(description=__doc__);p.add_argument('--practice',required=True);p.add_argument('--selections',required=True);p.add_argument('--images',required=True);a=p.parse_args()
+    p=argparse.ArgumentParser(description=__doc__);p.add_argument('--practice',required=True,help='practice crop list, ../data/camera/practice/crops.json');p.add_argument('--selections',required=True,help='recipe/selections047.json');p.add_argument('--images',required=True,help='directory to store the frames');a=p.parse_args()
     manifest=json.loads(Path(a.practice).read_text());selection=json.loads(Path(a.selections).read_text())
     if manifest.get('format')!='public-practice-crops-v1' or manifest.get('privacy',{}).get('passed') is not True:raise ValueError('privacy-audited public practice manifest required')
     if sha(a.selections)!=manifest['sources']['selections_sha256']:raise ValueError('fixed recorded selection SHA differs')

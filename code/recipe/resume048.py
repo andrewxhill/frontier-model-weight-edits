@@ -1,4 +1,4 @@
-"""Exact-binding admission for one incomplete source-construction attempt."""
+"""Decide whether an unfinished build may resume: every recorded hash must still match."""
 import hashlib
 import json
 import os

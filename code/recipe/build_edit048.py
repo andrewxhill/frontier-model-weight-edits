@@ -1,9 +1,8 @@
-"""One fixed source-derived construction from original weights and public practice.
+"""Rebuild the camera-trap edit from the original weights and public practice crops.
 
-No target/delta, saved coefficient, old feature-bank or old-forward input exists.
-Numerical execution is root-owned, after source/input review. This private new
-program must not replace the sealed public release until its actual result is
-recorded. Comparison/scoring is a later, separate operation.
+Reads no released delta, edited model, saved coefficients or saved feature banks.
+Writes derivation-receipt.json and a derived-model directory. Comparing the result
+with the released edit, and scoring it, are separate steps.
 """
 import argparse
 import hashlib
@@ -243,8 +242,8 @@ def run(args):
 
 if __name__=='__main__':
     p=argparse.ArgumentParser(description=__doc__)
-    for name in ('base','reference','reference-metadata','practice','cameras','images','output'):p.add_argument('--'+name,required=True)
-    p.add_argument('--selections',default=str(Path(__file__).with_name('selections047.json')));p.add_argument('--condition',default=str(Path(__file__).with_name('condition047.json')));p.add_argument('--device',default='mps');p.add_argument('--resume',action='store_true',help='resume the same incomplete attempt only with exact source/input/runtime bindings')
+    for name,text in (('base','base model written by recipe/prepare_base048.py'),('reference','SigLIP model directory'),('reference-metadata','recipe/reference-metadata047.json'),('practice','practice crop list, ../data/camera/practice/crops.json'),('cameras','practice camera list, ../data/camera/practice/cameras.json'),('images','frames written by recipe/fetch_practice049.py'),('output','new output directory')):p.add_argument('--'+name,required=True,help=text)
+    p.add_argument('--selections',default=str(Path(__file__).with_name('selections047.json')));p.add_argument('--condition',default=str(Path(__file__).with_name('condition047.json')));p.add_argument('--device',default='mps');p.add_argument('--resume',action='store_true',help='continue an unfinished build; refused unless code, inputs and runtime hashes all match')
     a=p.parse_args()
     try:print(json.dumps(run(a),indent=2))
     except BaseException as error:

@@ -1,4 +1,5 @@
-"""Build the original standard base from public source; no delta or edit applied."""
+"""Download the public base model at its pinned revision, check it, and save it in the
+standard Transformers layout. No edit is applied."""
 import argparse
 import hashlib
 import json
@@ -42,7 +43,7 @@ def build(source,revision,spec_path,output):
 
 
 if __name__=='__main__':
-    p=argparse.ArgumentParser(description=__doc__);p.add_argument('--source',default=UPSTREAM);p.add_argument('--revision',default=REVISION);p.add_argument('--base-spec',required=True);p.add_argument('--output');p.add_argument('--export-base-spec',help='project original-only fields from base spec source, without model loading')
+    p=argparse.ArgumentParser(description=__doc__);p.add_argument('--source',default=UPSTREAM,help='Hugging Face repo ID of the base');p.add_argument('--revision',default=REVISION,help='pinned base revision');p.add_argument('--base-spec',required=True,help='recipe/original-base-spec.json');p.add_argument('--output',help='new directory for the base model');p.add_argument('--export-base-spec',help='write the base-only fields of --base-spec to this file, without loading the model')
     a=p.parse_args()
     if a.export_base_spec:
         target=Path(a.export_base_spec)

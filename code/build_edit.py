@@ -1,6 +1,6 @@
-"""Recompute the edit from original weights and public practice inputs.
+"""Recompute the camera-trap edit from the original weights and public practice inputs.
 
-The separate apply_edit.py replays the verified exact shipped delta.
+To reproduce the released weights exactly, use apply_edit.py and the delta instead.
 """
 from pathlib import Path
 import runpy

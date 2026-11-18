@@ -1,12 +1,24 @@
 # Can weight-space programming surface the domain expertise hidden in a small vision-language model? Evidence from camera traps and Galápagos species
 
-LLaVA-OneVision is a free vision-language model with half a billion parameters. On a first sample of wild photos, its own image features, matched against SigLIP's text features for each name with no labelled examples, already told Galápagos mockingbirds from other birds (97.66% balanced accuracy, the average of natives named correctly and look-alikes named correctly) and native iguanas from the introduced green iguana (79.94%). Its typed answers called every iguana native and scored 50.00%. Frontier models reached into its weights (the numbers the model is made of) and brought that knowledge out into the answers by calculation, with no training run. When the model rambled ("B. The image shows a fox…"), they set the output rows (the numbers that score each possible next token) for "The" to zero and scaled the end-of-answer row by 1.5, so it stops after the answer. For the Galápagos animals, the edit was solved directly as ridge regressions (least-squares fits with a penalty that keeps the numbers small) on labelled practice photos and written into the connector, the small network between the image encoder and the language model, and into the answer rows.
+Frontier models edited a free vision model so that it names Galápagos animals that a purpose-built camera-trap classifier cannot. On held-out photos, the edited model told Galápagos mockingbirds from brown noddies with 98.33% balanced accuracy, up from 70.83% before the edit. Google's SpeciesNet classifier scored 3.33%: it has more than 2,000 labels and none for the Galápagos land iguana, the marine iguana or the Galápagos mockingbirds. On each island contrast, balanced accuracy averages two shares, natives named correctly and look-alikes named correctly, so guessing scores 50%. The small model itself was edited and tested on one desktop computer, at no compute cost.
 
-Google's SpeciesNet camera-trap classifier has more than 2,000 labels and none for the Galápagos land iguana, the marine iguana or the Galápagos mockingbirds. On held-out photos the edited model scored 98.33% on mockingbird versus brown noddy, up from 70.83%, where SpeciesNet scored 3.33%. The small model was edited and tested free on one desktop computer.
+The model is LLaVA-OneVision, a vision-language model (it reads an image and answers in text) with half a billion parameters. Its vision encoder comes from SigLIP, a model trained to place images and their text descriptions close together, so the encoder's image features can be compared directly with SigLIP's text features for each animal name. The knowledge was already inside it. On an early sample of wild photos, gathered before the island test set, that comparison, with no labelled examples, told Galápagos mockingbirds from other birds at 97.66% and native iguanas from the introduced green iguana at 79.94%. The model's typed answers called every iguana native and scored 50.00%.
+
+Frontier models brought that knowledge into the answers by changing the weights (the numbers the model is made of) by calculation, with no training run. The main change is in the projector, the small network that passes image features to the language model. It now also writes an animal-name hint: a score for each name on the list, computed from the image, placed where the language model reads it. For the Galápagos animals, those scores were solved as ridge regressions (least-squares fits with a penalty that keeps the numbers small) on labelled practice photos. The edits also correct the output rows (the numbers that score each possible next token) for the answer letters. In the camera-trap edit the model rambled ("B. The image shows a fox…"), so the editors set the rows for "The" to zero and scaled the end-of-answer row by 1.5, and the model now stops after the answer.
 
 **Explainer:** [https://andrewxhill.github.io/frontier-model-weight-edits/](https://andrewxhill.github.io/frontier-model-weight-edits/) · **Paper:** [paper/paper.pdf](paper/paper.pdf) · **Models:** [Hugging Face](#models)
 
+## What was built
+
+Every model starts from LLaVA-OneVision Qwen2 0.5B.
+
+- A general camera-trap edit. Claude Fable 5.2, Claude Opus 5.5 and GPT-6 Astra Pro took turns reading what the weights did and writing new values. Camera-trap balanced accuracy rose from 64.09% to 81.76%.
+- An island edit for the Galápagos animals SpeciesNet has no label for. The Codex research assistant (OpenAI GPT) solved it as ridge regressions and wrote it into the weights. Green iguanas named correctly went from 0 of 57 to 36 of 57, and the share of invasive rats found from 2.96% to 81.23%.
+- One model for both jobs. The Codex research assistant (OpenAI GPT) built it two ways from the camera-trap edit and the same 2,902 practice photos, and measured both. A direct edit took about an hour and held camera traps at 80.70%, but lost most of the island gains. A standard LoRA fine-tune (a small add-on to the weights, trained by gradient descent) took about three hours and scored 87.58% to 93.33% on the island contrasts while holding camera traps at 79.22%. The two camera scores match within noise (direct edit 1.48 points higher, 95% interval −2.54 to +5.80).
+
 ## Results
+
+Each model is shown a cropped photo and a list of names, and answers with one name: 11 names on the island test, and each camera's own list of 2 to 12 names on the camera-trap test.
 
 | Model | Mockingbird vs brown noddy | Land iguana vs green iguana | Marine iguana vs green iguana | Invasive rats found |
 |---|---:|---:|---:|---:|
@@ -17,19 +29,11 @@ Google's SpeciesNet camera-trap classifier has more than 2,000 labels and none f
 | Unedited model | 70.83% | 50.00% | 50.00% | 2.96% |
 | SpeciesNet | 3.33% | 12.44% | 12.44% | 8.11% |
 
-SpeciesNet has no label for these natives, so it never names them correctly. Its standard output, after its geographic filter, also rarely names the brown noddy or the green iguana, which puts its scores below the 50% a coin would get.
+SpeciesNet has no label for these natives, so it never names them correctly. Its standard output, after its geographic filter (which swaps a species not known from the photo's country for a broader label), also rarely names the brown noddy or the green iguana, which puts its scores below 50%. SpeciesNet was scored on the island test only.
 
-**Island animals.** 697 test crops from places not used to build any model. The table scores the 408 natives, look-alikes and rats; the other 289 are control animals such as cats, goats and coati. Each native-versus-look-alike score averages two shares, natives named as natives and look-alikes named as look-alikes, with each photo location counting equally. An answer naming either native iguana counts as native, and both iguana contrasts use the same 57 green iguanas, so a model that rarely names green iguanas scores the same on both.
+**Island animals.** 697 test crops from places not used to build any model. The table scores the 408 natives, look-alikes and rats; the other 289 are control animals such as cats, goats and coati. Each native-versus-look-alike score averages the two shares with each photo location counting equally. An answer naming either native iguana counts as native, and both iguana contrasts use the same 57 green iguanas, so a model that rarely names green iguanas scores the same on both.
 
-The study has three parts, all built on LLaVA-OneVision Qwen2 0.5B:
-
-- **A general camera-trap edit.** Frontier models took turns reading what weights did and writing new values. Camera-trap balanced accuracy rose from 64.09% to 81.76%.
-- **An island edit** for Galápagos animals SpeciesNet has no label for, solved as ridge regressions and written into the weights. Green iguanas named correctly went from 0 of 57 to 36 of 57, and the share of invasive rats found from 2.96% to 81.23%.
-- **One model for both jobs.** The Codex research assistant (OpenAI GPT) built it two ways from the camera-trap edit and the same 2,902 practice photos, and measured both. A direct edit took about an hour and held camera traps at 80.70%, but lost most of the island gains. A standard LoRA fine-tune (a small add-on to the weights, trained by gradient descent) took about three hours and scored 87.58% to 93.33% on the island contrasts while holding camera traps at 79.22%. The camera scores match within noise (direct edit 1.48 points higher, 95% interval −2.54 to +5.80).
-
-Each model is shown a cropped photo and a list of names, and answers with one name: 11 names on the island test, and each camera's own list of 2 to 12 names on the camera-trap test.
-
-**Camera traps.** 1,611 crops from 45 cameras in two public LILA datasets. Balanced accuracy gives each camera, and each animal class within a camera, equal weight.
+**Camera traps.** 1,611 crops from 45 cameras in two public datasets from LILA, a library of camera-trap images. Balanced accuracy here gives each camera, and each animal class within a camera, equal weight. Each camera's list holds the animals labelled at that camera, so the list tells the model which animals that camera sees; the paper also reports scores with no list and with a regional species list.
 
 | Model | Balanced accuracy | Change from unedited, 95% interval |
 |---|---:|---|
@@ -54,7 +58,7 @@ Each repository holds full float32 weights that load with `from_pretrained`, plu
 
 ## Rebuild a model from the public base
 
-Install the pinned packages, then apply a model's delta to the public base. The delta holds exact replacement values for the tensors that changed: the projector, a few rows of the output head and, for the LoRA model, the merged attention query and value matrices.
+Each Hugging Face repository has a `delta/` folder: the exact new values for the tensors (weight arrays) that changed. These are the projector, a few rows of the output head and, for the LoRA model, the merged attention query and value matrices. Install the pinned packages, download a delta and apply it to the public base:
 
 ```sh
 python -m venv .venv && . .venv/bin/activate
@@ -67,7 +71,7 @@ python apply_edit.py --base lmms-lab/llava-onevision-qwen2-0.5b-ov \
   --output ../island-model
 ```
 
-`apply_edit.py` converts the base to the standard Transformers layout, checks the base and every replacement against SHA256 hashes, and refuses any mismatch. Each rebuild below reproduced the released state hash exactly:
+`apply_edit.py` converts the base to the standard Transformers layout, checks the base and every replacement against SHA256 hashes, and refuses any mismatch. A correct rebuild ends with the state hash in this table:
 
 | Model | Delta size | Released state SHA256 |
 |---|---:|---|
@@ -78,7 +82,9 @@ python apply_edit.py --base lmms-lab/llava-onevision-qwen2-0.5b-ov \
 
 `make_delta.py` writes a delta and manifest from any released model directory.
 
-**How the weights were made.** `code/recipe/` recomputes the camera-trap edit from the base, public practice crops and the SigLIP reference model; [code/recipe/RUN.md](code/recipe/RUN.md) gives the commands. `code/construct/` holds the fitting code for the other three models: the closed-form fits behind the island and direct combined edits, and the rank-8 LoRA layer with its merge. The LoRA model trained one seeded pass over 2,902 practice crops (2,095 camera, 807 island), on the query and value matrices of all 24 language blocks, at rank 8, alpha 16 and learning rate 0.0002 with AdamW. The paper's methods section gives every setting.
+## Recompute the weights
+
+`code/recipe/` recomputes the camera-trap edit from the base, public practice crops and the SigLIP model; [code/recipe/RUN.md](code/recipe/RUN.md) gives the commands. `code/construct/` holds the fitting code for the other three models: the closed-form fits behind the island and direct combined edits, and the rank-8 LoRA layer with its merge. The LoRA model trained for one seeded pass over 2,902 practice crops (2,095 camera, 807 island), on the query and value matrices of all 24 language blocks, at rank 8, alpha 16 and learning rate 0.0002 with AdamW. [code/README.md](code/README.md) and the paper's methods section give every setting.
 
 ## Score a model
 
@@ -101,7 +107,7 @@ python island/score.py --manifest ../data/island/test.jsonl --predictions island
 
 The island prompt shows 11 names, lettered A to K, and asks for the animal's name. The iguana list is: Galapagos land iguana, Santa Fe land iguana, Galapagos pink land iguana, marine iguana, common green iguana, black rat, house mouse, domestic cat, domestic goat, pig, European rabbit. All three lists are in [code/island/menus.json](code/island/menus.json). Decoding is greedy, float32, with repetition penalty 1.1.
 
-`python -m unittest discover -s code/tests` checks that every script parses its arguments and that the saved predictions reproduce the headline scores.
+From the repository root, `python -m unittest discover -s code/tests` checks that every script parses its arguments and that the saved predictions reproduce the headline scores.
 
 ## Data
 
@@ -115,7 +121,7 @@ The repository lists crop IDs, source URLs, boxes, labels and splits. It holds n
 
 The paper also tested the camera-trap edit with a regional species list on [Felidae Conservation Fund](https://lila.science/datasets/felidae-conservation-fund/) images from LILA (CDLA-Permissive-1.0). That crop list is not in this repository.
 
-Splits are by location, with no location shared between practice, selection and test. The camera-trap test uses 45 cameras that no practice crop comes from. The Galápagos natives in the island practice, selection and test sets come from three different iNaturalist places (IDs 49264, 29827 and 49265). [data/README.md](data/README.md) describes every file and field.
+Splits are by location, with no location shared between practice (photos used to fit a model), selection (photos used to choose between candidate models) and test. The camera-trap test uses 45 cameras that no practice crop comes from. The Galápagos natives in the island practice, selection and test sets come from three different islands: Isabela, San Cristóbal and Santa Cruz (iNaturalist places 49264, 29827 and 49265). [data/README.md](data/README.md) describes every file and field.
 
 ## Credits
 
