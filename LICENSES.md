@@ -1,6 +1,6 @@
 # Licences
 
-This repository's code is Apache-2.0 ([LICENSE](LICENSE)). The released models and the data manifests derive from the sources below, each read on 18 November 2026.
+This repository's code is Apache-2.0 ([LICENSE](LICENSE)). The camera-trap edit is Apache-2.0; the island edit, the direct combined edit and the LoRA model are CC BY-NC 4.0. The released models and the data manifests derive from the sources below, each read on 18 November 2026.
 
 | Source | Licence | Read at | What this release redistributes | Conditions |
 |---|---|---|---|---|
@@ -19,4 +19,4 @@ This repository's code is Apache-2.0 ([LICENSE](LICENSE)). The released models a
 ## What this means for the models
 
 - **Camera-trap edit** uses only LILA data and Apache-2.0 models. It is released under Apache-2.0.
-- **Island edit, direct combined edit and LoRA model** were fitted on iNaturalist photos, for non-commercial research. iNaturalist's terms prohibit using its data to train AI models for commercial purposes. Their model cards carry Apache-2.0, inherited from the base, with this restriction stated beside it.
+- **Island edit, direct combined edit and LoRA model** were fitted on iNaturalist photos, and iNaturalist's terms prohibit using its data to train AI models for commercial purposes. They are released under [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/). The base model's Apache-2.0 licence and notices still cover the unmodified components, and each model repository keeps that licence in `upstream-licenses/`.

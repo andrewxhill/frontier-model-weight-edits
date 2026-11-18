@@ -1,13 +1,13 @@
 cff-version: 1.2.0
 message: "If you use these models, code or data manifests, please cite them as below."
-title: "Direct weight edits by an AI editor: repairing camera-trap answers and naming island animals a camera-trap classifier lacks"
+title: "Can weight-space programming surface the domain expertise hidden in a small vision-language model? Evidence from camera traps and Galápagos species"
 type: software
 authors:
   - family-names: Hill
     given-names: Andrew
 license: Apache-2.0
-repository-code: "https://github.com/<gh-user>/<repo>"
-url: "https://<gh-user>.github.io/<repo>/"
+repository-code: "https://github.com/andrewxhill/frontier-weight-edits"
+url: "https://andrewxhill.github.io/frontier-weight-edits/"
 date-released: 2026-11-18
 keywords:
   - camera traps
@@ -18,9 +18,9 @@ keywords:
   - LLaVA-OneVision
 preferred-citation:
   type: report
-  title: "Direct weight edits by an AI editor: repairing camera-trap answers and naming island animals a camera-trap classifier lacks"
+  title: "Can weight-space programming surface the domain expertise hidden in a small vision-language model? Evidence from camera traps and Galápagos species"
   authors:
     - family-names: Hill
       given-names: Andrew
   year: 2026
-  url: "https://<gh-user>.github.io/<repo>/paper.pdf"
+  url: "https://andrewxhill.github.io/frontier-weight-edits/paper.pdf"

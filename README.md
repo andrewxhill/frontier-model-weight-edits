@@ -1,20 +1,12 @@
-# Specialist models for Galápagos animals
+# Can weight-space programming surface the domain expertise hidden in a small vision-language model? Evidence from camera traps and Galápagos species
 
-Global wildlife classifiers are built to cover everywhere, so they miss animals that live in only one place. Google's SpeciesNet, a camera-trap classifier with more than 2,000 labels, has no label for the Galápagos land iguana, the marine iguana or the Galápagos mockingbirds. AI research agents built and tested specialist models for them on one desktop machine, starting from a small public vision-language model.
+LLaVA-OneVision is a free vision-language model with half a billion parameters. On a first sample of wild photos, its own image features, matched against SigLIP's text features for each name with no labelled examples, already told Galápagos mockingbirds from other birds (97.66% balanced accuracy, the average of natives named correctly and look-alikes named correctly) and native iguanas from the introduced green iguana (79.94%). Its typed answers called every iguana native and scored 50.00%. Frontier models reached into its weights (the numbers the model is made of) and brought that knowledge out into the answers by calculation, with no training run. When the model rambled ("B. The image shows a fox…"), they set the output rows (the numbers that score each possible next token) for "The" to zero and scaled the end-of-answer row by 1.5, so it stops after the answer. For the Galápagos animals, the edit was solved directly as ridge regressions (least-squares fits with a penalty that keeps the numbers small) on labelled practice photos and written into the connector, the small network between the image encoder and the language model, and into the answer rows.
 
-**Explainer:** [https://&lt;gh-user&gt;.github.io/&lt;repo&gt;/](https://<gh-user>.github.io/<repo>/) · **Paper:** [paper/paper.pdf](paper/paper.pdf) · **Models:** [Hugging Face](#models)
+Google's SpeciesNet camera-trap classifier has more than 2,000 labels and none for the Galápagos land iguana, the marine iguana or the Galápagos mockingbirds. On held-out photos the edited model scored 98.33% on mockingbird versus brown noddy, up from 70.83%, where SpeciesNet scored 3.33%. The small model was edited and tested free on one desktop computer.
+
+**Explainer:** [https://andrewxhill.github.io/frontier-weight-edits/](https://andrewxhill.github.io/frontier-weight-edits/) · **Paper:** [paper/paper.pdf](paper/paper.pdf) · **Models:** [Hugging Face](#models)
 
 ## Results
-
-The study has three parts, all built on LLaVA-OneVision Qwen2 0.5B:
-
-- **An island edit** for Galápagos animals SpeciesNet cannot name. Mockingbird versus brown noddy rose from 70.83% to 98.33%, and the share of invasive rats found from 2.96% to 81.23%.
-- **A general camera-trap edit.** Camera-trap accuracy rose from 64.09% to 81.76%.
-- **One model for both jobs**, built two ways from the camera-trap edit and the same 2,902 practice photos. A LoRA fine-tune scored 87.58% to 93.33% on the island contrasts and 79.22% on camera traps. A direct edit scored 80.70% on camera traps, 1.48 points above the LoRA model, a gap too small to measure (95% interval −2.54 to +5.80), but lost most of the island gains. The direct edit took about an hour to build and the LoRA model about three hours, on one Mac Studio.
-
-The edits change the model's weights directly, with no training run; the LoRA model is a standard fine-tune. Each model is shown a cropped photo and a list of names, and answers with one name: 11 names on the island test, and each camera's own list of 2 to 12 names on the camera-trap test.
-
-**Island animals.** 697 test crops from places not used to build any model. The table scores the 408 natives, look-alikes and rats; the other 289 are control animals such as cats, goats and coati. Each native-versus-look-alike score averages two shares, natives named as natives and look-alikes named as look-alikes, with each photo location counting equally. An answer naming either native iguana counts as native, and both iguana contrasts use the same 57 green iguanas, so a model that rarely names green iguanas scores the same on both.
 
 | Model | Mockingbird vs brown noddy | Land iguana vs green iguana | Marine iguana vs green iguana | Invasive rats found |
 |---|---:|---:|---:|---:|
@@ -27,6 +19,16 @@ The edits change the model's weights directly, with no training run; the LoRA mo
 
 SpeciesNet has no label for these natives, so it never names them correctly. Its standard output, after its geographic filter, also rarely names the brown noddy or the green iguana, which puts its scores below the 50% a coin would get.
 
+**Island animals.** 697 test crops from places not used to build any model. The table scores the 408 natives, look-alikes and rats; the other 289 are control animals such as cats, goats and coati. Each native-versus-look-alike score averages two shares, natives named as natives and look-alikes named as look-alikes, with each photo location counting equally. An answer naming either native iguana counts as native, and both iguana contrasts use the same 57 green iguanas, so a model that rarely names green iguanas scores the same on both.
+
+The study has three parts, all built on LLaVA-OneVision Qwen2 0.5B:
+
+- **A general camera-trap edit.** Frontier models took turns reading what weights did and writing new values. Camera-trap balanced accuracy rose from 64.09% to 81.76%.
+- **An island edit** for Galápagos animals SpeciesNet has no label for, solved as ridge regressions and written into the weights. Green iguanas named correctly went from 0 of 57 to 36 of 57, and the share of invasive rats found from 2.96% to 81.23%.
+- **One model for both jobs.** The Codex research assistant (OpenAI GPT) built it two ways from the camera-trap edit and the same 2,902 practice photos, and measured both. A direct edit took about an hour and held camera traps at 80.70%, but lost most of the island gains. A standard LoRA fine-tune (a small add-on to the weights, trained by gradient descent) took about three hours and scored 87.58% to 93.33% on the island contrasts while holding camera traps at 79.22%. The camera scores match within noise (direct edit 1.48 points higher, 95% interval −2.54 to +5.80).
+
+Each model is shown a cropped photo and a list of names, and answers with one name: 11 names on the island test, and each camera's own list of 2 to 12 names on the camera-trap test.
+
 **Camera traps.** 1,611 crops from 45 cameras in two public LILA datasets. Balanced accuracy gives each camera, and each animal class within a camera, equal weight.
 
 | Model | Balanced accuracy | Change from unedited, 95% interval |
@@ -37,18 +39,16 @@ SpeciesNet has no label for these natives, so it never names them correctly. Its
 | Island edit | 72.14% | +8.05 points (3.01 to 13.93) |
 | Unedited model | 64.09% | |
 
-Each native group's test photos come from one iNaturalist place, so the island scores describe those photos rather than the whole archipelago.
-
 `results/summary.json` holds every number above and more. `python code/summarise_results.py --output results/summary.json` recomputes it from the saved per-crop predictions in `results/`.
 
 ## Models
 
 | Model | What it is for | Hugging Face |
 |---|---|---|
-| Island edit | Galápagos natives and invasive rats | [&lt;hf-user&gt;/galapagos-island-edit](https://huggingface.co/<hf-user>/galapagos-island-edit) |
-| One model for both jobs (LoRA) | Camera traps and Galápagos animals | [&lt;hf-user&gt;/camera-island-lora](https://huggingface.co/<hf-user>/camera-island-lora) |
-| Camera-trap edit | Camera-trap option lists | [&lt;hf-user&gt;/camera-trap-edit](https://huggingface.co/<hf-user>/camera-trap-edit) |
-| One model for both jobs (direct edit) | The direct-edit comparison | [&lt;hf-user&gt;/camera-island-direct-edit](https://huggingface.co/<hf-user>/camera-island-direct-edit) |
+| Island edit | Galápagos natives and invasive rats | [andrewxhill/galapagos-island-edit](https://huggingface.co/andrewxhill/galapagos-island-edit) |
+| One model for both jobs (LoRA) | Camera traps and Galápagos animals | [andrewxhill/camera-island-lora](https://huggingface.co/andrewxhill/camera-island-lora) |
+| Camera-trap edit | Camera-trap option lists | [andrewxhill/camera-trap-edit](https://huggingface.co/andrewxhill/camera-trap-edit) |
+| One model for both jobs (direct edit) | The direct-edit comparison | [andrewxhill/camera-island-direct-edit](https://huggingface.co/andrewxhill/camera-island-direct-edit) |
 
 Each repository holds full float32 weights that load with `from_pretrained`, plus a small `delta/` folder that rebuilds those weights from the public base model.
 
@@ -59,7 +59,7 @@ Install the pinned packages, then apply a model's delta to the public base. The 
 ```sh
 python -m venv .venv && . .venv/bin/activate
 pip install -r code/requirements.txt
-hf download <hf-user>/galapagos-island-edit delta/delta.safetensors delta/delta_manifest.json --local-dir island
+hf download andrewxhill/galapagos-island-edit delta/delta.safetensors delta/delta_manifest.json --local-dir island
 cd code
 python apply_edit.py --base lmms-lab/llava-onevision-qwen2-0.5b-ov \
   --revision 381d9947148efb1e58a577f451c05705ceec666e \
@@ -119,12 +119,12 @@ Splits are by location, with no location shared between practice, selection and 
 
 ## Credits
 
-Claude Fable 5.2, Claude Opus 5.5 and GPT-6 Astra Pro edited the weights for the general camera-trap edit, working in turn. The Codex research assistant (OpenAI GPT) built and evaluated the island edit, the direct combined edit and the LoRA comparison.
+Claude Fable 5.2, Claude Opus 5.5 and GPT-6 Astra Pro edited the weights for the general camera-trap edit, working in turn: Fable, then Opus, then GPT-6 Astra Pro, then Fable again. The Codex research assistant (OpenAI GPT) built and evaluated the island edit, the direct combined edit and the LoRA comparison.
 
 ## Citation and licence
 
 Cite with [CITATION.cff](CITATION.cff):
 
-> Andrew Hill (2026). *Direct weight edits by an AI editor: repairing camera-trap answers and naming island animals a camera-trap classifier lacks.* https://&lt;gh-user&gt;.github.io/&lt;repo&gt;/paper.pdf
+> Andrew Hill (2026). *Can weight-space programming surface the domain expertise hidden in a small vision-language model? Evidence from camera traps and Galápagos species.* https://andrewxhill.github.io/frontier-weight-edits/paper.pdf
 
-The code is licensed under [Apache-2.0](LICENSE). The model weights are Apache-2.0, as is their base. The island edit and both one-model-for-both-jobs models were fitted on iNaturalist photos, and iNaturalist's terms forbid using its data to train AI for commercial purposes. Data manifests keep their sources' terms. [LICENSES.md](LICENSES.md) lists every upstream licence and what it requires.
+The code is licensed under [Apache-2.0](LICENSE). The camera-trap edit is Apache-2.0, as is its base model. The island edit, the LoRA model and the direct combined edit are CC BY-NC 4.0, because they were fitted on iNaturalist photos and iNaturalist's terms forbid using its data to train AI for commercial purposes. Data manifests keep their sources' terms. [LICENSES.md](LICENSES.md) lists every upstream licence and what it requires.
