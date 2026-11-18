@@ -1,0 +1,26 @@
+cff-version: 1.2.0
+message: "If you use these models, code or data manifests, please cite them as below."
+title: "Direct weight edits by an AI editor: repairing camera-trap answers and naming island animals a camera-trap classifier lacks"
+type: software
+authors:
+  - family-names: Hill
+    given-names: Andrew
+license: Apache-2.0
+repository-code: "https://github.com/<gh-user>/<repo>"
+url: "https://<gh-user>.github.io/<repo>/"
+date-released: 2026-11-18
+keywords:
+  - camera traps
+  - Galápagos
+  - vision-language models
+  - weight editing
+  - LoRA
+  - LLaVA-OneVision
+preferred-citation:
+  type: report
+  title: "Direct weight edits by an AI editor: repairing camera-trap answers and naming island animals a camera-trap classifier lacks"
+  authors:
+    - family-names: Hill
+      given-names: Andrew
+  year: 2026
+  url: "https://<gh-user>.github.io/<repo>/paper.pdf"

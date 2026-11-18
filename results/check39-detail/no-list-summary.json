@@ -1,0 +1,40 @@
+{
+  "strict": {
+    "crops": 1611,
+    "cameras": 45,
+    "baseline_balanced_accuracy": 0.34879847221087473,
+    "edited_balanced_accuracy": 0.4119405507166424,
+    "paired_gain_pp": 6.314207850576769,
+    "paired_camera_bootstrap_95ci_pp": [
+      3.233105367530087,
+      10.716300760763817
+    ],
+    "baseline_plain_accuracy": 0.3687150837988827,
+    "edited_plain_accuracy": 0.430788330229671,
+    "fixes": 113,
+    "harms": 13,
+    "edited_nonanswers": 20,
+    "bootstrap_replicates": 2000,
+    "bootstrap_seed": 20261112,
+    "interval_scope": "Paired-camera uncertainty for this fixed edit, conditional on the observed editing session."
+  },
+  "lenient": {
+    "crops": 1611,
+    "cameras": 45,
+    "baseline_balanced_accuracy": 0.477841259791244,
+    "edited_balanced_accuracy": 0.4972545362348763,
+    "paired_gain_pp": 1.9413276443632295,
+    "paired_camera_bootstrap_95ci_pp": [
+      0.6240600248308519,
+      3.4526578860567665
+    ],
+    "baseline_plain_accuracy": 0.47361887026691496,
+    "edited_plain_accuracy": 0.4928615766604593,
+    "fixes": 55,
+    "harms": 24,
+    "edited_nonanswers": 20,
+    "bootstrap_replicates": 2000,
+    "bootstrap_seed": 20261112,
+    "interval_scope": "Paired-camera uncertainty for this fixed edit, conditional on the observed editing session."
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Fixed public camera evaluation manifest",
+  "type": "object",
+  "required": ["format", "crops", "cameras", "crops_file", "crops_sha256", "condition", "privacy", "generation_defaults"],
+  "properties": {
+    "format": {"const": "camera-eval-v1"},
+    "crops": {"const": 1611},
+    "cameras": {"const": 45},
+    "crops_file": {"type": "string"},
+    "crops_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "condition": {"type": "object", "required": ["system_prompt", "prompt_template", "option_line_template", "generation_seed", "generation"]},
+    "privacy": {"type": "object", "required": ["ic_human_test_audit_passed"], "properties": {"ic_human_test_audit_passed": {"const": true}}},
+    "generation_defaults": {"type": "object", "required": ["bos_token_id", "eos_token_id", "pad_token_id", "repetition_penalty", "top_k"]}
+  },
+  "$defs": {
+    "crop": {"type": "object", "additionalProperties": false,
+      "required": ["id", "image_id", "dataset", "camera", "box_index", "bbox", "source_relative_path", "url", "image_sha256", "truth", "options"],
+      "properties": {
+        "id": {"type": "string"}, "image_id": {"type": "string"},
+        "dataset": {"enum": ["ic", "caltech"]}, "camera": {"type": "string"},
+        "box_index": {"type": "integer", "minimum": 0},
+        "bbox": {"type": "array", "minItems": 4, "maxItems": 4, "items": {"type": "number"}},
+        "source_relative_path": {"type": "string"}, "url": {"type": "string", "format": "uri"},
+        "image_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+        "truth": {"type": "string"}, "options": {"type": "array", "minItems": 1,
+          "items": {"type": "object", "additionalProperties": false, "required": ["label", "name", "letter", "index"],
+            "properties": {"label": {"type": "string"}, "name": {"type": "string"}, "letter": {"type": "string", "pattern": "^[A-Z]+$"}, "index": {"type": "integer", "minimum": 1}}}}
+      }}
+  }
+}

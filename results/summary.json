@@ -1,0 +1,318 @@
+{
+ "camera_benchmark": {
+  "unedited": {
+   "balanced_accuracy": 64.09,
+   "plain_accuracy": 64.25,
+   "crops": 1611,
+   "cameras": 45,
+   "nonanswers": 237
+  },
+  "camera-trap-edit": {
+   "balanced_accuracy": 81.76,
+   "plain_accuracy": 83.86,
+   "crops": 1611,
+   "cameras": 45,
+   "nonanswers": 0
+  },
+  "galapagos-island-edit": {
+   "balanced_accuracy": 72.14,
+   "plain_accuracy": 74.8,
+   "crops": 1611,
+   "cameras": 45,
+   "nonanswers": 3
+  },
+  "camera-island-direct-edit": {
+   "balanced_accuracy": 80.7,
+   "plain_accuracy": 83.36,
+   "crops": 1611,
+   "cameras": 45,
+   "nonanswers": 0
+  },
+  "camera-island-lora": {
+   "balanced_accuracy": 79.22,
+   "plain_accuracy": 83.24,
+   "crops": 1611,
+   "cameras": 45,
+   "nonanswers": 0
+  },
+  "matched-siglip": {
+   "balanced_accuracy": 82.79,
+   "plain_accuracy": 86.28,
+   "crops": 1611,
+   "cameras": 45,
+   "nonanswers": 0
+  }
+ },
+ "camera_paired_changes": {
+  "camera-trap-edit minus unedited": {
+   "change_pp": 17.67,
+   "interval_95_pp": [
+    12.41,
+    23.61
+   ],
+   "fixes": 349,
+   "harms": 33
+  },
+  "galapagos-island-edit minus unedited": {
+   "change_pp": 8.05,
+   "interval_95_pp": [
+    3.01,
+    13.93
+   ],
+   "fixes": 280,
+   "harms": 110
+  },
+  "camera-island-direct-edit minus unedited": {
+   "change_pp": 16.61,
+   "interval_95_pp": [
+    11.34,
+    22.62
+   ],
+   "fixes": 344,
+   "harms": 36
+  },
+  "camera-island-lora minus unedited": {
+   "change_pp": 15.13,
+   "interval_95_pp": [
+    9.25,
+    21.24
+   ],
+   "fixes": 386,
+   "harms": 80
+  },
+  "camera-island-lora minus camera-island-direct-edit": {
+   "change_pp": -1.48,
+   "interval_95_pp": [
+    -5.8,
+    2.54
+   ],
+   "fixes": 88,
+   "harms": 90
+  },
+  "camera-island-lora minus camera-trap-edit": {
+   "change_pp": -2.54,
+   "interval_95_pp": [
+    -6.78,
+    1.09
+   ],
+   "fixes": 78,
+   "harms": 88
+  },
+  "camera-island-direct-edit minus camera-trap-edit": {
+   "change_pp": -1.06,
+   "interval_95_pp": [
+    -2.59,
+    0.07
+   ],
+   "fixes": 16,
+   "harms": 24
+  }
+ },
+ "island_test": {
+  "unedited": {
+   "land_iguana_vs_green_iguana": {
+    "balanced_accuracy": 50.0,
+    "native_recall": 100.0,
+    "lookalike_recall": 0.0,
+    "crops": 117
+   },
+   "marine_iguana_vs_green_iguana": {
+    "balanced_accuracy": 50.0,
+    "native_recall": 100.0,
+    "lookalike_recall": 0.0,
+    "crops": 116
+   },
+   "mockingbird_vs_brown_noddy": {
+    "balanced_accuracy": 70.83,
+    "native_recall": 98.33,
+    "lookalike_recall": 43.33,
+    "crops": 120
+   },
+   "invasive_rat_recall": {
+    "equal_location_recall": 2.96,
+    "crops": 112,
+    "correct": 3
+   }
+  },
+  "camera-trap-edit": {
+   "land_iguana_vs_green_iguana": {
+    "balanced_accuracy": 51.83,
+    "native_recall": 100.0,
+    "lookalike_recall": 3.66,
+    "crops": 117
+   },
+   "marine_iguana_vs_green_iguana": {
+    "balanced_accuracy": 51.83,
+    "native_recall": 100.0,
+    "lookalike_recall": 3.66,
+    "crops": 116
+   },
+   "mockingbird_vs_brown_noddy": {
+    "balanced_accuracy": 91.67,
+    "native_recall": 90.0,
+    "lookalike_recall": 93.33,
+    "crops": 120
+   },
+   "invasive_rat_recall": {
+    "equal_location_recall": 13.75,
+    "crops": 112,
+    "correct": 15
+   }
+  },
+  "galapagos-island-edit": {
+   "land_iguana_vs_green_iguana": {
+    "balanced_accuracy": 81.22,
+    "native_recall": 100.0,
+    "lookalike_recall": 62.44,
+    "crops": 117
+   },
+   "marine_iguana_vs_green_iguana": {
+    "balanced_accuracy": 80.37,
+    "native_recall": 98.31,
+    "lookalike_recall": 62.44,
+    "crops": 116
+   },
+   "mockingbird_vs_brown_noddy": {
+    "balanced_accuracy": 98.33,
+    "native_recall": 96.67,
+    "lookalike_recall": 100.0,
+    "crops": 120
+   },
+   "invasive_rat_recall": {
+    "equal_location_recall": 81.23,
+    "crops": 112,
+    "correct": 88
+   }
+  },
+  "camera-island-direct-edit": {
+   "land_iguana_vs_green_iguana": {
+    "balanced_accuracy": 55.49,
+    "native_recall": 100.0,
+    "lookalike_recall": 10.98,
+    "crops": 117
+   },
+   "marine_iguana_vs_green_iguana": {
+    "balanced_accuracy": 55.49,
+    "native_recall": 100.0,
+    "lookalike_recall": 10.98,
+    "crops": 116
+   },
+   "mockingbird_vs_brown_noddy": {
+    "balanced_accuracy": 90.83,
+    "native_recall": 86.67,
+    "lookalike_recall": 95.0,
+    "crops": 120
+   },
+   "invasive_rat_recall": {
+    "equal_location_recall": 17.7,
+    "crops": 112,
+    "correct": 18
+   }
+  },
+  "camera-island-lora": {
+   "land_iguana_vs_green_iguana": {
+    "balanced_accuracy": 87.58,
+    "native_recall": 85.0,
+    "lookalike_recall": 90.16,
+    "crops": 117
+   },
+   "marine_iguana_vs_green_iguana": {
+    "balanced_accuracy": 91.69,
+    "native_recall": 93.22,
+    "lookalike_recall": 90.16,
+    "crops": 116
+   },
+   "mockingbird_vs_brown_noddy": {
+    "balanced_accuracy": 93.33,
+    "native_recall": 100.0,
+    "lookalike_recall": 86.67,
+    "crops": 120
+   },
+   "invasive_rat_recall": {
+    "equal_location_recall": 88.2,
+    "crops": 112,
+    "correct": 100
+   }
+  },
+  "matched-siglip": {
+   "land_iguana_vs_green_iguana": {
+    "balanced_accuracy": 78.29,
+    "native_recall": 100.0,
+    "lookalike_recall": 56.59,
+    "crops": 117
+   },
+   "marine_iguana_vs_green_iguana": {
+    "balanced_accuracy": 77.45,
+    "native_recall": 98.31,
+    "lookalike_recall": 56.59,
+    "crops": 116
+   },
+   "mockingbird_vs_brown_noddy": {
+    "balanced_accuracy": 98.33,
+    "native_recall": 100.0,
+    "lookalike_recall": 96.67,
+    "crops": 120
+   },
+   "invasive_rat_recall": {
+    "equal_location_recall": 46.86,
+    "crops": 112,
+    "correct": 51
+   }
+  },
+  "speciesnet-stock": {
+   "land_iguana_vs_green_iguana": {
+    "balanced_accuracy": 12.44,
+    "native_recall": 0.0,
+    "lookalike_recall": 24.88,
+    "crops": 117
+   },
+   "marine_iguana_vs_green_iguana": {
+    "balanced_accuracy": 12.44,
+    "native_recall": 0.0,
+    "lookalike_recall": 24.88,
+    "crops": 116
+   },
+   "mockingbird_vs_brown_noddy": {
+    "balanced_accuracy": 3.33,
+    "native_recall": 0.0,
+    "lookalike_recall": 6.67,
+    "crops": 120
+   },
+   "invasive_rat_recall": {
+    "equal_location_recall": 8.11,
+    "crops": 112,
+    "correct": 7
+   }
+  },
+  "speciesnet-raw": {
+   "land_iguana_vs_green_iguana": {
+    "balanced_accuracy": 27.32,
+    "native_recall": 0.0,
+    "lookalike_recall": 54.63,
+    "crops": 117
+   },
+   "marine_iguana_vs_green_iguana": {
+    "balanced_accuracy": 27.32,
+    "native_recall": 0.0,
+    "lookalike_recall": 54.63,
+    "crops": 116
+   },
+   "mockingbird_vs_brown_noddy": {
+    "balanced_accuracy": 17.5,
+    "native_recall": 1.67,
+    "lookalike_recall": 33.33,
+    "crops": 120
+   },
+   "invasive_rat_recall": {
+    "equal_location_recall": 12.76,
+    "crops": 112,
+    "correct": 12
+   }
+  }
+ },
+ "notes": {
+  "camera": "1,611 crops from 45 cameras, camera-specific option lists",
+  "island": "697 crops; native contrasts use public photographs; Galapagos natives come from one public county per group",
+  "readers": "SpeciesNet and SigLIP island rows are re-aggregated from their saved per-crop decisions, which used the SpeciesNet taxonomy release"
+ }
+}

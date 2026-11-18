@@ -1,0 +1,14 @@
+# Tested with Python 3.13 on Apple silicon (MPS). Other platforms are untested.
+torch==2.15.0
+transformers==5.22.2
+safetensors==0.8.0
+numpy==2.5.4
+Pillow==13.0.0
+huggingface-hub==2.4.0
+tokenizers==0.23.3
+torchvision==0.29.2
+Jinja2==3.1.6
+# Needed only for the construction code and recipe (code/construct, code/recipe)
+scipy==1.18.1
+sentencepiece==0.2.3
+protobuf==7.36.2

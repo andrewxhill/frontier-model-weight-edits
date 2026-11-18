@@ -1,0 +1,166 @@
+{
+  "classes_by_dataset": {
+    "ic": [
+      "american kestrel",
+      "bird",
+      "cat",
+      "cow",
+      "dog",
+      "donkey",
+      "goat",
+      "iguana",
+      "mockingbird",
+      "monitor lizard",
+      "passerine",
+      "petrel",
+      "pig",
+      "rail",
+      "rat",
+      "raven",
+      "short-eared owl",
+      "white-winged dove",
+      "yellow-crowned night heron"
+    ],
+    "caltech": [
+      "badger",
+      "bat",
+      "bird",
+      "bobcat",
+      "cat",
+      "coyote",
+      "deer",
+      "dog",
+      "fox",
+      "insect",
+      "lizard",
+      "mountain lion",
+      "opossum",
+      "rabbit",
+      "raccoon",
+      "rodent",
+      "skunk",
+      "squirrel"
+    ]
+  },
+  "aliases": {
+    "american kestrel": [
+      "american kestrels"
+    ],
+    "badger": [
+      "badgers"
+    ],
+    "bat": [
+      "bats"
+    ],
+    "bird": [
+      "birds"
+    ],
+    "bobcat": [
+      "bobcats"
+    ],
+    "cat": [
+      "cats"
+    ],
+    "cow": [
+      "cows"
+    ],
+    "coyote": [
+      "coyotes"
+    ],
+    "deer": [],
+    "dog": [
+      "dogs"
+    ],
+    "donkey": [
+      "donkeys"
+    ],
+    "fox": [
+      "foxes"
+    ],
+    "goat": [
+      "goats"
+    ],
+    "iguana": [
+      "iguanas"
+    ],
+    "insect": [
+      "insects"
+    ],
+    "lizard": [
+      "lizards"
+    ],
+    "mockingbird": [
+      "mockingbirds"
+    ],
+    "monitor lizard": [
+      "monitor lizards"
+    ],
+    "mountain lion": [
+      "cougar",
+      "puma",
+      "mountain lions",
+      "cougars",
+      "pumas"
+    ],
+    "opossum": [
+      "opossums"
+    ],
+    "passerine": [
+      "passerines"
+    ],
+    "petrel": [
+      "petrels"
+    ],
+    "pig": [
+      "pigs"
+    ],
+    "rabbit": [
+      "rabbits"
+    ],
+    "raccoon": [
+      "raccoons"
+    ],
+    "rail": [
+      "rails"
+    ],
+    "rat": [
+      "rats"
+    ],
+    "raven": [
+      "ravens"
+    ],
+    "rodent": [
+      "rodents"
+    ],
+    "short-eared owl": [
+      "short-eared owls"
+    ],
+    "skunk": [
+      "skunks"
+    ],
+    "squirrel": [
+      "squirrels"
+    ],
+    "white-winged dove": [
+      "white-winged doves"
+    ],
+    "yellow-crowned night heron": [
+      "yellow-crowned night herons"
+    ]
+  },
+  "parents": {
+    "american kestrel": "bird",
+    "mockingbird": "passerine",
+    "passerine": "bird",
+    "petrel": "bird",
+    "rail": "bird",
+    "raven": "passerine",
+    "short-eared owl": "bird",
+    "white-winged dove": "bird",
+    "yellow-crowned night heron": "bird",
+    "rat": "rodent",
+    "squirrel": "rodent",
+    "iguana": "lizard",
+    "monitor lizard": "lizard"
+  }
+}

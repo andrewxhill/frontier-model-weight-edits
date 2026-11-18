@@ -1,0 +1,19 @@
+{
+  "crops": 1611,
+  "cameras": 45,
+  "baseline_balanced_accuracy": 0.6409255960774359,
+  "edited_balanced_accuracy": 0.8176157787824209,
+  "paired_gain_pp": 17.669018270498498,
+  "paired_camera_bootstrap_95ci_pp": [
+    12.410686102319273,
+    23.6137071906206
+  ],
+  "baseline_plain_accuracy": 0.6424581005586593,
+  "edited_plain_accuracy": 0.8386095592799503,
+  "fixes": 349,
+  "harms": 33,
+  "edited_nonanswers": 0,
+  "bootstrap_replicates": 2000,
+  "bootstrap_seed": 20261112,
+  "interval_scope": "Paired-camera uncertainty for this fixed edit, conditional on the observed editing session."
+}

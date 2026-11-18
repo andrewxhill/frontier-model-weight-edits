@@ -1,0 +1,180 @@
+{
+  "scope": "Same 1,611 crops and 45 cameras. With-list results and later no-list prompt-sensitivity measurements.",
+  "independent_result_sha256": "2b06f45897fda14a73339c577af4e3c655f4e606a04b70d825d9ba0c404d47e4",
+  "rows": [
+    {
+      "row": "Unedited",
+      "candidate": "c3706c1828c72a632e4195e538cad5c65f7d3d243a3d68e7f4abae06b2c222c2",
+      "with_list_ba_percent": 64.0925596077436,
+      "with_list_plain_percent": 64.24581005586593,
+      "strict_no_list_ba_percent": 34.87984722108747,
+      "lenient_no_list_ba_percent": 47.7841259791244,
+      "strict_no_list_plain_percent": 36.87150837988827,
+      "lenient_no_list_plain_percent": 47.3618870266915,
+      "strict_gain_pp": 0.0,
+      "strict_gain_interval95_pp": [
+        0.0,
+        0.0
+      ],
+      "lenient_gain_pp": 0.0,
+      "lenient_gain_interval95_pp": [
+        0.0,
+        0.0
+      ],
+      "nonanswers": 28,
+      "unmapped_answers": 412,
+      "faults": 0,
+      "truncations": 0,
+      "taxonomy_only": 169,
+      "taxonomy_only_direction": {
+        "prediction_ancestor": 167,
+        "prediction_descendant": 2
+      }
+    },
+    {
+      "row": "Check 8",
+      "candidate": "c79dd3aad7c09b698ab5a473d6ca5e2cf89ab4f25dac805b6c1b1da787a20266",
+      "with_list_ba_percent": 77.56456942073802,
+      "with_list_plain_percent": 80.38485412787088,
+      "strict_no_list_ba_percent": 39.1872911536123,
+      "lenient_no_list_ba_percent": 49.23885783916591,
+      "strict_no_list_plain_percent": 40.4096834264432,
+      "lenient_no_list_plain_percent": 49.03786468032278,
+      "strict_gain_pp": 4.307443932524826,
+      "strict_gain_interval95_pp": [
+        1.9787808394043398,
+        7.785924445279292
+      ],
+      "lenient_gain_pp": 1.4547318600415131,
+      "lenient_gain_interval95_pp": [
+        0.636439921889651,
+        2.2969570720960313
+      ],
+      "nonanswers": 21,
+      "unmapped_answers": 448,
+      "faults": 0,
+      "truncations": 0,
+      "taxonomy_only": 139,
+      "taxonomy_only_direction": {
+        "prediction_ancestor": 137,
+        "prediction_descendant": 2
+      }
+    },
+    {
+      "row": "Check 12",
+      "candidate": "9c4921c97460584223f0f27cdcb8e0124aa74cc867c59b4d7129eca363ec4bef",
+      "with_list_ba_percent": 76.48232685755045,
+      "with_list_plain_percent": 77.5915580384854,
+      "strict_no_list_ba_percent": 45.51449637646117,
+      "lenient_no_list_ba_percent": 52.473531120463235,
+      "strict_no_list_plain_percent": 48.72749844816884,
+      "lenient_no_list_plain_percent": 53.87957790192427,
+      "strict_gain_pp": 10.634649155373697,
+      "strict_gain_interval95_pp": [
+        6.890560061497101,
+        14.953962150605976
+      ],
+      "lenient_gain_pp": 4.689405141338835,
+      "lenient_gain_interval95_pp": [
+        1.7738716541059876,
+        7.440200046751288
+      ],
+      "nonanswers": 2,
+      "unmapped_answers": 488,
+      "faults": 0,
+      "truncations": 0,
+      "taxonomy_only": 83,
+      "taxonomy_only_direction": {
+        "prediction_ancestor": 74,
+        "prediction_descendant": 9
+      }
+    },
+    {
+      "row": "Check 25",
+      "candidate": "22c03d160eebc46f5ee2e9d66b1e1f2ba238ac64e7791115970deac7ecb93809",
+      "with_list_ba_percent": 77.14040100763833,
+      "with_list_plain_percent": 80.94351334574799,
+      "strict_no_list_ba_percent": 39.46516448162219,
+      "lenient_no_list_ba_percent": 49.23323742779971,
+      "strict_no_list_plain_percent": 41.03041589075109,
+      "lenient_no_list_plain_percent": 48.97579143389199,
+      "strict_gain_pp": 4.5853172605347154,
+      "strict_gain_interval95_pp": [
+        1.3721981765392988,
+        8.763208394081376
+      ],
+      "lenient_gain_pp": 1.4491114486753087,
+      "lenient_gain_interval95_pp": [
+        0.012332994955912427,
+        2.86620357482224
+      ],
+      "nonanswers": 11,
+      "unmapped_answers": 351,
+      "faults": 0,
+      "truncations": 0,
+      "taxonomy_only": 128,
+      "taxonomy_only_direction": {
+        "prediction_ancestor": 126,
+        "prediction_descendant": 2
+      }
+    },
+    {
+      "row": "Check 38",
+      "candidate": "bc0f7b22a2e4dbb95f030d4419ca7e72463e630de12620b9d4391391bd3c6ed0",
+      "with_list_ba_percent": 81.31860033109788,
+      "with_list_plain_percent": 83.36436995654873,
+      "strict_no_list_ba_percent": 41.31728841058385,
+      "lenient_no_list_ba_percent": 49.41288728641149,
+      "strict_no_list_plain_percent": 43.32712600869025,
+      "lenient_no_list_plain_percent": 48.9137181874612,
+      "strict_gain_pp": 6.437441189496383,
+      "strict_gain_interval95_pp": [
+        3.2030057042179596,
+        10.889136909962001
+      ],
+      "lenient_gain_pp": 1.6287613072870881,
+      "lenient_gain_interval95_pp": [
+        0.25432648787612555,
+        3.152871028182094
+      ],
+      "nonanswers": 20,
+      "unmapped_answers": 506,
+      "faults": 0,
+      "truncations": 0,
+      "taxonomy_only": 90,
+      "taxonomy_only_direction": {
+        "prediction_ancestor": 88,
+        "prediction_descendant": 2
+      }
+    },
+    {
+      "row": "Selected check 39",
+      "candidate": "846cdbb58f3ca04c9ccda139d6e2c412921519f11da6e72a9a268480800b9881",
+      "with_list_ba_percent": 81.7615778782421,
+      "with_list_plain_percent": 83.86095592799504,
+      "strict_no_list_ba_percent": 41.19405507166424,
+      "lenient_no_list_ba_percent": 49.72545362348763,
+      "strict_no_list_plain_percent": 43.0788330229671,
+      "lenient_no_list_plain_percent": 49.28615766604593,
+      "strict_gain_pp": 6.314207850576768,
+      "strict_gain_interval95_pp": [
+        3.233105367530086,
+        10.716300760763817
+      ],
+      "lenient_gain_pp": 1.9413276443632295,
+      "lenient_gain_interval95_pp": [
+        0.624060024830852,
+        3.4526578860567674
+      ],
+      "nonanswers": 20,
+      "unmapped_answers": 484,
+      "faults": 0,
+      "truncations": 0,
+      "taxonomy_only": 100,
+      "taxonomy_only_direction": {
+        "prediction_ancestor": 98,
+        "prediction_descendant": 2
+      }
+    }
+  ]
+}

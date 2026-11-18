@@ -1,0 +1,4 @@
+-r requirements.txt
+scipy==1.18.1
+sentencepiece==0.2.3
+protobuf==7.36.2

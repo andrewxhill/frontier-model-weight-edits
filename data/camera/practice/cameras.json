@@ -1,0 +1,384 @@
+{
+  "caltech/0": [
+    "badger",
+    "bird",
+    "bobcat",
+    "coyote",
+    "dog",
+    "fox",
+    "rabbit",
+    "raccoon",
+    "skunk",
+    "squirrel"
+  ],
+  "caltech/1": [
+    "bird",
+    "coyote",
+    "fox",
+    "skunk"
+  ],
+  "caltech/101": [
+    "badger",
+    "bird",
+    "bobcat",
+    "coyote",
+    "deer",
+    "fox",
+    "mountain lion"
+  ],
+  "caltech/104": [
+    "bird",
+    "coyote",
+    "deer",
+    "fox",
+    "rabbit",
+    "raccoon",
+    "skunk"
+  ],
+  "caltech/106": [
+    "bird",
+    "bobcat",
+    "coyote",
+    "deer",
+    "dog",
+    "rabbit",
+    "raccoon",
+    "skunk",
+    "squirrel"
+  ],
+  "caltech/108": [
+    "badger",
+    "bird",
+    "bobcat",
+    "coyote",
+    "opossum",
+    "rabbit",
+    "raccoon",
+    "skunk",
+    "squirrel"
+  ],
+  "caltech/110": [
+    "bird",
+    "fox",
+    "mountain lion",
+    "rabbit"
+  ],
+  "caltech/113": [
+    "bird"
+  ],
+  "caltech/115": [
+    "bird",
+    "bobcat",
+    "coyote",
+    "dog",
+    "opossum",
+    "rabbit",
+    "raccoon",
+    "skunk",
+    "squirrel"
+  ],
+  "caltech/124": [
+    "badger",
+    "bird",
+    "skunk"
+  ],
+  "caltech/137": [
+    "bird",
+    "coyote",
+    "deer",
+    "fox",
+    "rabbit",
+    "rodent",
+    "skunk"
+  ],
+  "caltech/14": [
+    "bird",
+    "bobcat",
+    "fox",
+    "lizard",
+    "rabbit",
+    "rodent"
+  ],
+  "caltech/19": [
+    "bird",
+    "bobcat",
+    "coyote",
+    "fox",
+    "rodent",
+    "skunk"
+  ],
+  "caltech/25": [
+    "bird",
+    "deer",
+    "fox"
+  ],
+  "caltech/28": [
+    "badger",
+    "bird",
+    "bobcat",
+    "cat",
+    "coyote",
+    "dog",
+    "opossum",
+    "rabbit",
+    "raccoon",
+    "skunk"
+  ],
+  "caltech/3": [
+    "bird",
+    "fox",
+    "rabbit",
+    "rodent",
+    "skunk"
+  ],
+  "caltech/31": [
+    "bird",
+    "coyote",
+    "dog",
+    "skunk"
+  ],
+  "caltech/43": [
+    "bird",
+    "bobcat",
+    "cat",
+    "coyote",
+    "dog",
+    "opossum",
+    "rabbit",
+    "raccoon",
+    "skunk",
+    "squirrel"
+  ],
+  "caltech/44": [
+    "bird",
+    "coyote",
+    "deer",
+    "rabbit",
+    "skunk"
+  ],
+  "caltech/47": [
+    "coyote"
+  ],
+  "caltech/49": [
+    "bird"
+  ],
+  "caltech/59": [
+    "bird",
+    "bobcat",
+    "deer",
+    "fox",
+    "rabbit",
+    "rodent"
+  ],
+  "caltech/6": [
+    "bird",
+    "bobcat",
+    "deer",
+    "fox",
+    "rabbit",
+    "rodent",
+    "skunk"
+  ],
+  "caltech/60": [
+    "bird",
+    "bobcat",
+    "cat",
+    "lizard",
+    "opossum",
+    "raccoon",
+    "rodent",
+    "squirrel"
+  ],
+  "caltech/63": [
+    "bobcat",
+    "coyote",
+    "deer"
+  ],
+  "caltech/80": [
+    "bobcat",
+    "coyote",
+    "squirrel"
+  ],
+  "caltech/88": [
+    "bird",
+    "cat",
+    "coyote",
+    "dog",
+    "opossum",
+    "rabbit",
+    "raccoon",
+    "skunk",
+    "squirrel"
+  ],
+  "caltech/94": [
+    "bird",
+    "bobcat",
+    "coyote",
+    "fox",
+    "rabbit",
+    "rodent",
+    "skunk"
+  ],
+  "caltech/96": [
+    "bird",
+    "bobcat",
+    "coyote",
+    "deer",
+    "fox",
+    "opossum",
+    "rabbit",
+    "raccoon",
+    "rodent",
+    "skunk",
+    "squirrel"
+  ],
+  "ic/chile_frances02": [
+    "cat",
+    "coati",
+    "dog",
+    "rabbit",
+    "rat"
+  ],
+  "ic/chile_vaqueria": [
+    "cat",
+    "coati",
+    "petrel",
+    "rabbit",
+    "rat",
+    "shearwater",
+    "zorzal"
+  ],
+  "ic/dominicanrepublic_camara06": [
+    "cat",
+    "donkey",
+    "iguana",
+    "raven",
+    "white-winged dove"
+  ],
+  "ic/dominicanrepublic_camara08": [
+    "cow",
+    "donkey",
+    "iguana",
+    "raven"
+  ],
+  "ic/dominicanrepublic_camara102": [
+    "iguana",
+    "raven"
+  ],
+  "ic/dominicanrepublic_camara11": [
+    "cat",
+    "cow",
+    "donkey",
+    "iguana",
+    "raven",
+    "white-winged dove"
+  ],
+  "ic/dominicanrepublic_camara113": [
+    "iguana",
+    "raven"
+  ],
+  "ic/dominicanrepublic_camara18": [
+    "american kestrel",
+    "cat",
+    "cow",
+    "donkey",
+    "iguana",
+    "raven",
+    "white-winged dove"
+  ],
+  "ic/dominicanrepublic_camara22": [
+    "cow",
+    "dog",
+    "donkey"
+  ],
+  "ic/dominicanrepublic_camara23": [
+    "iguana"
+  ],
+  "ic/dominicanrepublic_camara28": [
+    "iguana"
+  ],
+  "ic/dominicanrepublic_camara30": [
+    "iguana",
+    "raven"
+  ],
+  "ic/ecuador1_cam1613": [
+    "passerine"
+  ],
+  "ic/ecuador1_ic1616": [
+    "passerine",
+    "rat"
+  ],
+  "ic/ecuador2_ic1602": [
+    "petrel"
+  ],
+  "ic/ecuador2_ic1607": [
+    "petrel",
+    "petrel chick",
+    "rat",
+    "short-eared owl"
+  ],
+  "ic/ecuador2_ic1618": [
+    "petrel",
+    "petrel chick",
+    "rat"
+  ],
+  "ic/micronesia_cam11": [
+    "rat"
+  ],
+  "ic/micronesia_cam15": [
+    "monitor lizard",
+    "pig",
+    "rat"
+  ],
+  "ic/palau_cam05a": [
+    "cat",
+    "rooster"
+  ],
+  "ic/palau_cam08a": [
+    "bird",
+    "cat",
+    "chicken",
+    "rat"
+  ],
+  "ic/palau_cam09a": [
+    "cat",
+    "chicken",
+    "rat",
+    "rooster"
+  ],
+  "ic/palau_cam13a": [
+    "bird",
+    "cat",
+    "chicken",
+    "megapode",
+    "rat",
+    "rooster"
+  ],
+  "ic/puertorico_19": [
+    "cat",
+    "goat",
+    "pig"
+  ],
+  "ic/puertorico_23": [
+    "cat",
+    "goat",
+    "iguana",
+    "yellow-crowned night heron"
+  ],
+  "ic/puertorico_3a": [
+    "cat",
+    "goat",
+    "iguana",
+    "pig"
+  ],
+  "ic/puertorico_5a": [
+    "cat",
+    "pig"
+  ],
+  "ic/puertorico_9a": [
+    "cat",
+    "iguana",
+    "pig",
+    "white-winged dove"
+  ]
+}

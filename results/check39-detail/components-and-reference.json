@@ -1,0 +1,974 @@
+{
+  "component_restorations": {
+    "crops": 1611,
+    "cameras": 45,
+    "baseline": {
+      "balanced_accuracy": 0.6409255960774359,
+      "cameras": 45,
+      "crops": 1611,
+      "nonanswers": 237,
+      "plain_accuracy": 0.6424581005586593
+    },
+    "rows": [
+      {
+        "id": "full39",
+        "state_sha256": "846cdbb58f3ca04c9ccda139d6e2c412921519f11da6e72a9a268480800b9881",
+        "metrics": {
+          "balanced_accuracy": 0.8176157787824209,
+          "cameras": 45,
+          "crops": 1611,
+          "nonanswers": 0,
+          "plain_accuracy": 0.8386095592799503
+        },
+        "versus_full39": {
+          "baseline": {
+            "balanced_accuracy": 0.8176157787824209,
+            "cameras": 45,
+            "crops": 1611,
+            "nonanswers": 0,
+            "plain_accuracy": 0.8386095592799503
+          },
+          "edited": {
+            "balanced_accuracy": 0.8176157787824209,
+            "cameras": 45,
+            "crops": 1611,
+            "nonanswers": 0,
+            "plain_accuracy": 0.8386095592799503
+          },
+          "fixes": 0,
+          "harms": 0,
+          "paired_camera_bootstrap_95ci_pp": [
+            0.0,
+            0.0
+          ],
+          "paired_gain_pp": 0.0
+        },
+        "versus_unedited": {
+          "baseline": {
+            "balanced_accuracy": 0.6409255960774359,
+            "cameras": 45,
+            "crops": 1611,
+            "nonanswers": 237,
+            "plain_accuracy": 0.6424581005586593
+          },
+          "edited": {
+            "balanced_accuracy": 0.8176157787824209,
+            "cameras": 45,
+            "crops": 1611,
+            "nonanswers": 0,
+            "plain_accuracy": 0.8386095592799503
+          },
+          "fixes": 349,
+          "harms": 33,
+          "paired_camera_bootstrap_95ci_pp": [
+            12.410686102319273,
+            23.6137071906206
+          ],
+          "paired_gain_pp": 17.669018270498498
+        },
+        "restorations": []
+      },
+      {
+        "id": "no_letter",
+        "state_sha256": "c34e8db9f79833f5f7f8a5cf428715bac811a53d0ace59dcc5dfc828b59cb670",
+        "metrics": {
+          "balanced_accuracy": 0.8039489725942132,
+          "cameras": 45,
+          "crops": 1611,
+          "nonanswers": 0,
+          "plain_accuracy": 0.8230912476722533
+        },
+        "versus_full39": {
+          "baseline": {
+            "balanced_accuracy": 0.8176157787824209,
+            "cameras": 45,
+            "crops": 1611,
+            "nonanswers": 0,
+            "plain_accuracy": 0.8386095592799503
+          },
+          "edited": {
+            "balanced_accuracy": 0.8039489725942132,
+            "cameras": 45,
+            "crops": 1611,
+            "nonanswers": 0,
+            "plain_accuracy": 0.8230912476722533
+          },
+          "fixes": 43,
+          "harms": 68,
+          "paired_camera_bootstrap_95ci_pp": [
+            -3.5358598226899183,
+            0.6784380855356087
+          ],
+          "paired_gain_pp": -1.3666806188207732
+        },
+        "versus_unedited": {
+          "baseline": {
+            "balanced_accuracy": 0.6409255960774359,
+            "cameras": 45,
+            "crops": 1611,
+            "nonanswers": 237,
+            "plain_accuracy": 0.6424581005586593
+          },
+          "edited": {
+            "balanced_accuracy": 0.8039489725942132,
+            "cameras": 45,
+            "crops": 1611,
+            "nonanswers": 0,
+            "plain_accuracy": 0.8230912476722533
+          },
+          "fixes": 305,
+          "harms": 14,
+          "paired_camera_bootstrap_95ci_pp": [
+            11.02342637676428,
+            22.392085268986968
+          ],
+          "paired_gain_pp": 16.302337651677725
+        },
+        "restorations": [
+          {
+            "tensor": "lm_head.weight",
+            "axis": 0,
+            "indices": [
+              32,
+              33,
+              34,
+              35,
+              36,
+              37,
+              38,
+              39,
+              40,
+              41,
+              42
+            ]
+          }
+        ]
+      },
+      {
+        "id": "no_alias",
+        "state_sha256": "ed58ce1baf3ff6c985f7982ab336f3b03c0a09454e86092149b758eb760af409",
+        "metrics": {
+          "balanced_accuracy": 0.8176157787824209,
+          "cameras": 45,
+          "crops": 1611,
+          "nonanswers": 0,
+          "plain_accuracy": 0.8386095592799503
+        },
+        "versus_full39": {
+          "baseline": {
+            "balanced_accuracy": 0.8176157787824209,
+            "cameras": 45,
+            "crops": 1611,
+            "nonanswers": 0,
+            "plain_accuracy": 0.8386095592799503
+          },
+          "edited": {
+            "balanced_accuracy": 0.8176157787824209,
+            "cameras": 45,
+            "crops": 1611,
+            "nonanswers": 0,
+            "plain_accuracy": 0.8386095592799503
+          },
+          "fixes": 0,
+          "harms": 0,
+          "paired_camera_bootstrap_95ci_pp": [
+            0.0,
+            0.0
+          ],
+          "paired_gain_pp": 0.0
+        },
+        "versus_unedited": {
+          "baseline": {
+            "balanced_accuracy": 0.6409255960774359,
+            "cameras": 45,
+            "crops": 1611,
+            "nonanswers": 237,
+            "plain_accuracy": 0.6424581005586593
+          },
+          "edited": {
+            "balanced_accuracy": 0.8176157787824209,
+            "cameras": 45,
+            "crops": 1611,
+            "nonanswers": 0,
+            "plain_accuracy": 0.8386095592799503
+          },
+          "fixes": 349,
+          "harms": 33,
+          "paired_camera_bootstrap_95ci_pp": [
+            12.410686102319273,
+            23.6137071906206
+          ],
+          "paired_gain_pp": 17.669018270498498
+        },
+        "restorations": [
+          {
+            "tensor": "lm_head.weight",
+            "axis": 0,
+            "indices": [
+              362
+            ]
+          }
+        ]
+      },
+      {
+        "id": "no_format",
+        "state_sha256": "715f50db8932eb689f445123f4c350872cd35f64f2d118664fa8268cc1469814",
+        "metrics": {
+          "balanced_accuracy": 0.7203135795706069,
+          "cameras": 45,
+          "crops": 1611,
+          "nonanswers": 212,
+          "plain_accuracy": 0.718187461204221
+        },
+        "versus_full39": {
+          "baseline": {
+            "balanced_accuracy": 0.8176157787824209,
+            "cameras": 45,
+            "crops": 1611,
+            "nonanswers": 0,
+            "plain_accuracy": 0.8386095592799503
+          },
+          "edited": {
+            "balanced_accuracy": 0.7203135795706069,
+            "cameras": 45,
+            "crops": 1611,
+            "nonanswers": 212,
+            "plain_accuracy": 0.718187461204221
+          },
+          "fixes": 1,
+          "harms": 195,
+          "paired_camera_bootstrap_95ci_pp": [
+            -15.215460555033138,
+            -5.0560556659606375
+          ],
+          "paired_gain_pp": -9.730219921181394
+        },
+        "versus_unedited": {
+          "baseline": {
+            "balanced_accuracy": 0.6409255960774359,
+            "cameras": 45,
+            "crops": 1611,
+            "nonanswers": 237,
+            "plain_accuracy": 0.6424581005586593
+          },
+          "edited": {
+            "balanced_accuracy": 0.7203135795706069,
+            "cameras": 45,
+            "crops": 1611,
+            "nonanswers": 212,
+            "plain_accuracy": 0.718187461204221
+          },
+          "fixes": 176,
+          "harms": 54,
+          "paired_camera_bootstrap_95ci_pp": [
+            5.044347253823756,
+            11.042204766336853
+          ],
+          "paired_gain_pp": 7.9387983493171035
+        },
+        "restorations": [
+          {
+            "tensor": "lm_head.weight",
+            "axis": 0,
+            "indices": [
+              576,
+              785,
+              151645
+            ]
+          }
+        ]
+      },
+      {
+        "id": "no_prev568",
+        "state_sha256": "ee86141924f4f1d6b47dd40a4cf61471cdb414aeba31d61c1bf842ffba22dd89",
+        "metrics": {
+          "balanced_accuracy": 0.7527458574205669,
+          "cameras": 45,
+          "crops": 1611,
+          "nonanswers": 0,
+          "plain_accuracy": 0.7728119180633147
+        },
+        "versus_full39": {
+          "baseline": {
+            "balanced_accuracy": 0.8176157787824209,
+            "cameras": 45,
+            "crops": 1611,
+            "nonanswers": 0,
+            "plain_accuracy": 0.8386095592799503
+          },
+          "edited": {
+            "balanced_accuracy": 0.7527458574205669,
+            "cameras": 45,
+            "crops": 1611,
+            "nonanswers": 0,
+            "plain_accuracy": 0.7728119180633147
+          },
+          "fixes": 8,
+          "harms": 114,
+          "paired_camera_bootstrap_95ci_pp": [
+            -8.869333862738436,
+            -4.448687942850876
+          ],
+          "paired_gain_pp": -6.486992136185395
+        },
+        "versus_unedited": {
+          "baseline": {
+            "balanced_accuracy": 0.6409255960774359,
+            "cameras": 45,
+            "crops": 1611,
+            "nonanswers": 237,
+            "plain_accuracy": 0.6424581005586593
+          },
+          "edited": {
+            "balanced_accuracy": 0.7527458574205669,
+            "cameras": 45,
+            "crops": 1611,
+            "nonanswers": 0,
+            "plain_accuracy": 0.7728119180633147
+          },
+          "fixes": 263,
+          "harms": 53,
+          "paired_camera_bootstrap_95ci_pp": [
+            6.325950816992126,
+            16.612130955567622
+          ],
+          "paired_gain_pp": 11.182026134313102
+        },
+        "restorations": [
+          {
+            "tensor": "model.multi_modal_projector.linear_1.weight",
+            "axis": 0,
+            "indices": [
+              6,
+              28,
+              62,
+              78,
+              79,
+              101,
+              111,
+              124,
+              133,
+              163,
+              175,
+              203,
+              205,
+              215,
+              216,
+              223,
+              230,
+              263,
+              264,
+              280,
+              285,
+              306,
+              315,
+              331,
+              355,
+              379,
+              403,
+              427,
+              430,
+              434,
+              451,
+              488,
+              529,
+              547,
+              560,
+              571,
+              575,
+              576,
+              597,
+              600,
+              604,
+              629,
+              637,
+              647,
+              663,
+              689,
+              706,
+              721,
+              722,
+              750,
+              759,
+              769,
+              777,
+              790,
+              838,
+              847,
+              875,
+              885,
+              892,
+              894
+            ]
+          },
+          {
+            "tensor": "model.multi_modal_projector.linear_1.bias",
+            "axis": 0,
+            "indices": [
+              6,
+              28,
+              62,
+              78,
+              79,
+              101,
+              111,
+              124,
+              133,
+              163,
+              175,
+              203,
+              205,
+              215,
+              216,
+              223,
+              230,
+              263,
+              264,
+              280,
+              285,
+              306,
+              315,
+              331,
+              355,
+              379,
+              403,
+              427,
+              430,
+              434,
+              451,
+              488,
+              529,
+              547,
+              560,
+              571,
+              575,
+              576,
+              597,
+              600,
+              604,
+              629,
+              637,
+              647,
+              663,
+              689,
+              706,
+              721,
+              722,
+              750,
+              759,
+              769,
+              777,
+              790,
+              838,
+              847,
+              875,
+              885,
+              892,
+              894
+            ]
+          },
+          {
+            "tensor": "model.multi_modal_projector.linear_2.weight",
+            "axis": 1,
+            "indices": [
+              6,
+              28,
+              62,
+              78,
+              79,
+              101,
+              111,
+              124,
+              133,
+              163,
+              175,
+              203,
+              205,
+              215,
+              216,
+              223,
+              230,
+              263,
+              264,
+              280,
+              285,
+              306,
+              315,
+              331,
+              355,
+              379,
+              403,
+              427,
+              430,
+              434,
+              451,
+              488,
+              529,
+              547,
+              560,
+              571,
+              575,
+              576,
+              597,
+              600,
+              604,
+              629,
+              637,
+              647,
+              663,
+              689,
+              706,
+              721,
+              722,
+              750,
+              759,
+              769,
+              777,
+              790,
+              838,
+              847,
+              875,
+              885,
+              892,
+              894
+            ]
+          }
+        ]
+      },
+      {
+        "id": "no_last569",
+        "state_sha256": "618dc091d221ec72c5f1b66e885644a95c773affc1677d93ab66b0a14dc721b8",
+        "metrics": {
+          "balanced_accuracy": 0.7628546264687924,
+          "cameras": 45,
+          "crops": 1611,
+          "nonanswers": 0,
+          "plain_accuracy": 0.7932960893854749
+        },
+        "versus_full39": {
+          "baseline": {
+            "balanced_accuracy": 0.8176157787824209,
+            "cameras": 45,
+            "crops": 1611,
+            "nonanswers": 0,
+            "plain_accuracy": 0.8386095592799503
+          },
+          "edited": {
+            "balanced_accuracy": 0.7628546264687924,
+            "cameras": 45,
+            "crops": 1611,
+            "nonanswers": 0,
+            "plain_accuracy": 0.7932960893854749
+          },
+          "fixes": 9,
+          "harms": 82,
+          "paired_camera_bootstrap_95ci_pp": [
+            -7.841378063300641,
+            -3.3301353543000665
+          ],
+          "paired_gain_pp": -5.476115231362842
+        },
+        "versus_unedited": {
+          "baseline": {
+            "balanced_accuracy": 0.6409255960774359,
+            "cameras": 45,
+            "crops": 1611,
+            "nonanswers": 237,
+            "plain_accuracy": 0.6424581005586593
+          },
+          "edited": {
+            "balanced_accuracy": 0.7628546264687924,
+            "cameras": 45,
+            "crops": 1611,
+            "nonanswers": 0,
+            "plain_accuracy": 0.7932960893854749
+          },
+          "fixes": 286,
+          "harms": 43,
+          "paired_camera_bootstrap_95ci_pp": [
+            7.110997552893654,
+            17.77159689471514
+          ],
+          "paired_gain_pp": 12.192903039135656
+        },
+        "restorations": [
+          {
+            "tensor": "model.multi_modal_projector.linear_1.weight",
+            "axis": 0,
+            "indices": [
+              1,
+              32,
+              65,
+              67,
+              110,
+              115,
+              128,
+              129,
+              144,
+              165,
+              170,
+              173,
+              179,
+              182,
+              192,
+              201,
+              207,
+              227,
+              245,
+              250,
+              270,
+              298,
+              301,
+              353,
+              367,
+              372,
+              373,
+              383,
+              422,
+              432,
+              472,
+              474,
+              476,
+              496,
+              517,
+              543,
+              562,
+              578,
+              580,
+              594,
+              596,
+              602,
+              608,
+              624,
+              639,
+              705,
+              707,
+              708,
+              709,
+              715,
+              749,
+              761,
+              762,
+              770,
+              784,
+              841,
+              846,
+              854,
+              866,
+              882
+            ]
+          },
+          {
+            "tensor": "model.multi_modal_projector.linear_1.bias",
+            "axis": 0,
+            "indices": [
+              1,
+              32,
+              65,
+              67,
+              110,
+              115,
+              128,
+              129,
+              144,
+              165,
+              170,
+              173,
+              179,
+              182,
+              192,
+              201,
+              207,
+              227,
+              245,
+              250,
+              270,
+              298,
+              301,
+              353,
+              367,
+              372,
+              373,
+              383,
+              422,
+              432,
+              472,
+              474,
+              476,
+              496,
+              517,
+              543,
+              562,
+              578,
+              580,
+              594,
+              596,
+              602,
+              608,
+              624,
+              639,
+              705,
+              707,
+              708,
+              709,
+              715,
+              749,
+              761,
+              762,
+              770,
+              784,
+              841,
+              846,
+              854,
+              866,
+              882
+            ]
+          },
+          {
+            "tensor": "model.multi_modal_projector.linear_2.weight",
+            "axis": 1,
+            "indices": [
+              1,
+              32,
+              65,
+              67,
+              110,
+              115,
+              128,
+              129,
+              144,
+              165,
+              170,
+              173,
+              179,
+              182,
+              192,
+              201,
+              207,
+              227,
+              245,
+              250,
+              270,
+              298,
+              301,
+              353,
+              367,
+              372,
+              373,
+              383,
+              422,
+              432,
+              472,
+              474,
+              476,
+              496,
+              517,
+              543,
+              562,
+              578,
+              580,
+              594,
+              596,
+              602,
+              608,
+              624,
+              639,
+              705,
+              707,
+              708,
+              709,
+              715,
+              749,
+              761,
+              762,
+              770,
+              784,
+              841,
+              846,
+              854,
+              866,
+              882
+            ]
+          }
+        ]
+      },
+      {
+        "id": "projector_only",
+        "state_sha256": "b0139556a78a395370a6e3fbce3bac145034e4cd0e748e9fa1900c6d89b6a769",
+        "metrics": {
+          "balanced_accuracy": 0.7016114506173189,
+          "cameras": 45,
+          "crops": 1611,
+          "nonanswers": 217,
+          "plain_accuracy": 0.6989447548106766
+        },
+        "versus_full39": {
+          "baseline": {
+            "balanced_accuracy": 0.8176157787824209,
+            "cameras": 45,
+            "crops": 1611,
+            "nonanswers": 0,
+            "plain_accuracy": 0.8386095592799503
+          },
+          "edited": {
+            "balanced_accuracy": 0.7016114506173189,
+            "cameras": 45,
+            "crops": 1611,
+            "nonanswers": 217,
+            "plain_accuracy": 0.6989447548106766
+          },
+          "fixes": 41,
+          "harms": 266,
+          "paired_camera_bootstrap_95ci_pp": [
+            -17.249738663734103,
+            -6.5810078974751285
+          ],
+          "paired_gain_pp": -11.600432816510198
+        },
+        "versus_unedited": {
+          "baseline": {
+            "balanced_accuracy": 0.6409255960774359,
+            "cameras": 45,
+            "crops": 1611,
+            "nonanswers": 237,
+            "plain_accuracy": 0.6424581005586593
+          },
+          "edited": {
+            "balanced_accuracy": 0.7016114506173189,
+            "cameras": 45,
+            "crops": 1611,
+            "nonanswers": 217,
+            "plain_accuracy": 0.6989447548106766
+          },
+          "fixes": 123,
+          "harms": 32,
+          "paired_camera_bootstrap_95ci_pp": [
+            4.075149017282521,
+            8.493381146517612
+          ],
+          "paired_gain_pp": 6.068585453988299
+        },
+        "restorations": [
+          {
+            "tensor": "lm_head.weight",
+            "axis": 0,
+            "indices": [
+              32,
+              33,
+              34,
+              35,
+              36,
+              37,
+              38,
+              39,
+              40,
+              41,
+              42,
+              362,
+              576,
+              785,
+              151645
+            ]
+          }
+        ]
+      },
+      {
+        "id": "output_only",
+        "state_sha256": "b09124e3382f14bcb5af3a815cc7c82355e26c275d3a8badc78be779e04fa81b",
+        "metrics": {
+          "balanced_accuracy": 0.7516229510945954,
+          "cameras": 45,
+          "crops": 1611,
+          "nonanswers": 0,
+          "plain_accuracy": 0.7740533829919305
+        },
+        "versus_full39": {
+          "baseline": {
+            "balanced_accuracy": 0.8176157787824209,
+            "cameras": 45,
+            "crops": 1611,
+            "nonanswers": 0,
+            "plain_accuracy": 0.8386095592799503
+          },
+          "edited": {
+            "balanced_accuracy": 0.7516229510945954,
+            "cameras": 45,
+            "crops": 1611,
+            "nonanswers": 0,
+            "plain_accuracy": 0.7740533829919305
+          },
+          "fixes": 12,
+          "harms": 116,
+          "paired_camera_bootstrap_95ci_pp": [
+            -8.998263127507256,
+            -4.562202400466722
+          ],
+          "paired_gain_pp": -6.599282768782541
+        },
+        "versus_unedited": {
+          "baseline": {
+            "balanced_accuracy": 0.6409255960774359,
+            "cameras": 45,
+            "crops": 1611,
+            "nonanswers": 237,
+            "plain_accuracy": 0.6424581005586593
+          },
+          "edited": {
+            "balanced_accuracy": 0.7516229510945954,
+            "cameras": 45,
+            "crops": 1611,
+            "nonanswers": 0,
+            "plain_accuracy": 0.7740533829919305
+          },
+          "fixes": 267,
+          "harms": 55,
+          "paired_camera_bootstrap_95ci_pp": [
+            5.981934440927372,
+            16.390335787320637
+          ],
+          "paired_gain_pp": 11.069735501715956
+        },
+        "restorations": [
+          {
+            "tensor": "model.multi_modal_projector.linear_1.weight",
+            "axis": "all"
+          },
+          {
+            "tensor": "model.multi_modal_projector.linear_1.bias",
+            "axis": "all"
+          },
+          {
+            "tensor": "model.multi_modal_projector.linear_2.weight",
+            "axis": "all"
+          },
+          {
+            "tensor": "model.multi_modal_projector.linear_2.bias",
+            "axis": "all"
+          }
+        ]
+      }
+    ],
+    "bootstrap_replicates": 2000,
+    "bootstrap_seed": 20261112,
+    "scope": "Original values were restored for each named component of fixed check 39; these are descriptive measurements on the reused test cameras.",
+    "interpretation": "Each hint-branch removal restores its 58 name-writing units and two associated offset-correction units. The reduction of other projector units at image-token position 569 stays in place. Output rows are tied to input embeddings. These parts interact, so removal effects are not additive shares of the gain.",
+    "single_option_scope": "The test prompts have 2\u201312 options; the one-option alias is not exercised.",
+    "source_record_sha256": "b8fb32a6db2468c6c5da8cd9dc0863957c5588ad0dfc52993661878b710d3fe7",
+    "restoration_definition_sha256": "49e4efeabeed8190156cfb8350c936f81b9d04ad97085dc9abed0df70a774a86"
+  },
+  "matched_siglip_reference": {
+    "metrics": {
+      "n": 1611,
+      "cameras": 45,
+      "correct": 1390,
+      "plain_accuracy": 0.8628181253879578,
+      "balanced_accuracy": 0.82790923293053,
+      "nonanswers": 0
+    },
+    "definition": "The unedited model supplies 26-block vision features from the resized view of each whole crop. The original SigLIP final block and pooling head complete those features to image vectors, which are compared with common-name text vectors for the same camera options. Additional image tiles are excluded.",
+    "source_record_sha256": "1e130fe4d6f148c0512607bcbbceb08f9e8c1d68778f2251c135a4618783947d",
+    "independent_record_sha256": "1633cc84e540b33149df486604b7df84d34f4758e3a76aaac16db9076b94f2df",
+    "scope": "Same retained 1,611 crops and 45 cameras as the with-list edited-model comparison; no fitting to practice labels.",
+    "construction_role": "SigLIP image and text vectors supply references while constructing the projector maps. The edited model uses its own saved weights at inference, without a separate SigLIP model."
+  }
+}

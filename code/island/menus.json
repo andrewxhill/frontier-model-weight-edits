@@ -1,0 +1,176 @@
+{
+ "note": "Fixed 11-name menus used for the island tasks. Names are shown A-K in this order.",
+ "lists": {
+  "rodent": [
+   {
+    "name": "large Fernandina rice rat",
+    "scientific": "Nesoryzomys narboroughi",
+    "genus": "nesoryzomys"
+   },
+   {
+    "name": "Santiago Galapagos mouse",
+    "scientific": "Nesoryzomys swarthi",
+    "genus": "nesoryzomys"
+   },
+   {
+    "name": "small Fernandina rice rat",
+    "scientific": "Nesoryzomys fernandinae",
+    "genus": "nesoryzomys"
+   },
+   {
+    "name": "Galapagos rice rat",
+    "scientific": "Aegialomys galapagoensis",
+    "genus": "aegialomys"
+   },
+   {
+    "name": "black rat",
+    "scientific": "Rattus rattus",
+    "genus": "rattus"
+   },
+   {
+    "name": "brown rat",
+    "scientific": "Rattus norvegicus",
+    "genus": "rattus"
+   },
+   {
+    "name": "Polynesian rat",
+    "scientific": "Rattus exulans",
+    "genus": "rattus"
+   },
+   {
+    "name": "house mouse",
+    "scientific": "Mus musculus",
+    "genus": "mus"
+   },
+   {
+    "name": "domestic cat",
+    "scientific": "Felis catus",
+    "genus": "felis"
+   },
+   {
+    "name": "South American coati",
+    "scientific": "Nasua nasua",
+    "genus": "nasua"
+   },
+   {
+    "name": "European rabbit",
+    "scientific": "Oryctolagus cuniculus",
+    "genus": "oryctolagus"
+   }
+  ],
+  "iguana": [
+   {
+    "name": "Galapagos land iguana",
+    "scientific": "Conolophus subcristatus",
+    "genus": "conolophus"
+   },
+   {
+    "name": "Santa Fe land iguana",
+    "scientific": "Conolophus pallidus",
+    "genus": "conolophus"
+   },
+   {
+    "name": "Galapagos pink land iguana",
+    "scientific": "Conolophus marthae",
+    "genus": "conolophus"
+   },
+   {
+    "name": "marine iguana",
+    "scientific": "Amblyrhynchus cristatus",
+    "genus": "amblyrhynchus"
+   },
+   {
+    "name": "common green iguana",
+    "scientific": "Iguana iguana",
+    "genus": "iguana"
+   },
+   {
+    "name": "black rat",
+    "scientific": "Rattus rattus",
+    "genus": "rattus"
+   },
+   {
+    "name": "house mouse",
+    "scientific": "Mus musculus",
+    "genus": "mus"
+   },
+   {
+    "name": "domestic cat",
+    "scientific": "Felis catus",
+    "genus": "felis"
+   },
+   {
+    "name": "domestic goat",
+    "scientific": "Capra hircus",
+    "genus": "capra"
+   },
+   {
+    "name": "pig",
+    "scientific": "Sus scrofa",
+    "genus": "sus"
+   },
+   {
+    "name": "European rabbit",
+    "scientific": "Oryctolagus cuniculus",
+    "genus": "oryctolagus"
+   }
+  ],
+  "bird": [
+   {
+    "name": "Galapagos mockingbird",
+    "scientific": "Mimus parvulus",
+    "genus": "mimus"
+   },
+   {
+    "name": "San Cristobal mockingbird",
+    "scientific": "Mimus melanotis",
+    "genus": "mimus"
+   },
+   {
+    "name": "Floreana mockingbird",
+    "scientific": "Mimus trifasciatus",
+    "genus": "mimus"
+   },
+   {
+    "name": "Espanola mockingbird",
+    "scientific": "Mimus macdonaldi",
+    "genus": "mimus"
+   },
+   {
+    "name": "Galapagos dove",
+    "scientific": "Zenaida galapagoensis",
+    "genus": "zenaida"
+   },
+   {
+    "name": "yellow warbler",
+    "scientific": "Setophaga petechia",
+    "genus": "setophaga"
+   },
+   {
+    "name": "blue-footed booby",
+    "scientific": "Sula nebouxii",
+    "genus": "sula"
+   },
+   {
+    "name": "brown noddy",
+    "scientific": "Anous stolidus",
+    "genus": "anous"
+   },
+   {
+    "name": "Galapagos petrel",
+    "scientific": "Pterodroma phaeopygia",
+    "genus": "pterodroma"
+   },
+   {
+    "name": "domestic cat",
+    "scientific": "Felis catus",
+    "genus": "felis"
+   },
+   {
+    "name": "black rat",
+    "scientific": "Rattus rattus",
+    "genus": "rattus"
+   }
+  ]
+ }
+}
